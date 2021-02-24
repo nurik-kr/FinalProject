@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="proceed">Продолжить</string>
+    <string name="back">Назад</string>
+    <string name="skip">Пропустить</string>
+    <string name="start">Завершить</string>
+    <string name="first_title">Узнавай новости\nиз мира самбо</string>
+    <string name="second_title">Учись у лучших\nспортсменов</string>
+    <string name="third_title">Стань частью\nсообщества</string>
+    <string name="my_games">Мои игры</string>
+    <string name="all_games">Все игры</string>
+    <string name="my_commands">Мои команды</string>
+    <string name="tournaments">Турниры</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="football">Футбол</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="options">Вид спорта</string>
+    <string name="my_score">My Score</string>
+    <string name="favourite_turnir">Избранные соревнования</string>
+    <string name="others">Прочие Соревнования [А-Я]</string>
+    <string name="xokei">Хоккей</string>
+    <string name="basketball">Баскетбол</string>
+    <string name="tennis">Теннис</string>
+</resources>

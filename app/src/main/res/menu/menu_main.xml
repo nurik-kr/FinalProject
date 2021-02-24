@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/all_games"
+        android:enabled="true"
+        android:icon="@drawable/ic_all_games"
+        android:title="@string/all_games"
+        />
+    <item
+        android:id="@+id/my_games"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="@string/my_games"/>
+    <item
+        android:id="@+id/my_commands"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/my_commands"/>
+    <item
+        android:id="@+id/tournaments"
+        android:enabled="true"
+        android:icon="@drawable/ic_tournaments"
+        android:title="@string/tournaments"/>
+</menu>
