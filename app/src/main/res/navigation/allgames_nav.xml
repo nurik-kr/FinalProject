@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/all_games"
+    app:startDestination="@id/navigation_all_games">
+
+    <fragment
+        android:id="@+id/navigation_all_games"
+        android:name="kg.nurik.finalproject.ui.bottomNav.allGames.AllGamesFragment"
+        android:label="all games"
+        tools:layout="@layout/fragment_all_games" >
+
+        <action
+            android:id="@+id/action_navigation_all_games_to_countryDetailsFragment2"
+            app:destination="@id/countryDetailsFragment2" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/countryDetailsFragment2"
+        android:name="kg.nurik.finalproject.ui.countryDetails.CountryDetailsFragment"
+        android:label="CountryDetailsFragment"
+        tools:layout="@layout/fragment_country_details" >
+
+        <argument
+            android:name="countryName"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

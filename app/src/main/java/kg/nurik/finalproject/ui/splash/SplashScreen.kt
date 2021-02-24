@@ -24,6 +24,7 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
         } else {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
+            activity?.onBackPressed()
         }
     }
 }
