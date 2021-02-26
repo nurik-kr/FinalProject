@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import kg.nurik.finalproject.R
+import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -12,8 +14,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
 
     private val vm by viewModel<AllGamesViewModel>()
-    private val adapter = AllCountryAdapter()
     private val binding by viewBinding(FragmentAllGamesBinding::bind)
+
+    private val adapter = AllCountryAdapter() {
+        navigateToDetails(it)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,5 +32,11 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         })
     }
 
+    private fun navigateToDetails(data: Data) {
+        val direction =
+            AllGamesFragmentDirections
+                .actionNavigationAllGamesToCountryDetailsFragment2(data.name) //тут передаем значение
+        findNavController().navigate(direction)
+    }
 
 }

@@ -8,13 +8,15 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kotlinx.android.synthetic.main.item_all_games.view.*
 
-class AllCountryAdapter : RecyclerView.Adapter<ViewHolder>() {
+class AllCountryAdapter(private val listener: (item: Data) -> Unit) :
+    RecyclerView.Adapter<ViewHolder>() {
 
     private val list = arrayListOf<Data>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_all_games, parent, false)
-        return ViewHolder(view)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_all_games, parent, false)
+        return ViewHolder(view, listener)
     }
 
     fun update(list: List<Data>?) {
@@ -30,14 +32,15 @@ class AllCountryAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     override fun getItemCount() = list.size
-
 }
 
-class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(point: Data) {
-//        itemView.tv_name.text = point.slug
-//        itemView.tv_liga.text = point.name
+class ViewHolder(view: View, private val listener: (item: Data) -> Unit) :
+    RecyclerView.ViewHolder(view) {
 
+    fun bind(point: Data) {
+        itemView.setOnClickListener {
+            listener.invoke(point)
+        }
         itemView.tv_name.text = point.name
 
     }
