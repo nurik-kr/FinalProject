@@ -57,8 +57,7 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_favourite"
-             />
+            app:layout_constraintTop_toBottomOf="@id/tv_favourite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -88,11 +87,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            tools:listitem="@layout/item_all_games"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_others" />
+            app:layout_constraintTop_toBottomOf="@id/tv_others"
+            tools:listitem="@layout/item_all_games" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

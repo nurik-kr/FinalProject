@@ -2,7 +2,7 @@ package kg.nurik.finalproject
 
 import android.app.Application
 import kg.nurik.finalproject.di.appModules
-import kg.nurik.finalproject.data.local.PreferenceHelper
+import kg.nurik.finalproject.data.local.sharedPreferences.PreferenceHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

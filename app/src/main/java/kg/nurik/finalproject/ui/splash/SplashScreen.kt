@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.ui.main.MainActivity
-import kg.nurik.finalproject.data.local.PreferenceHelper
+import kg.nurik.finalproject.data.local.sharedPreferences.PreferenceHelper
 
 class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

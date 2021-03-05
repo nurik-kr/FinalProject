@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.data.local
+package kg.nurik.finalproject.data.local.sharedPreferences
 
 import android.content.Context
 import android.content.SharedPreferences

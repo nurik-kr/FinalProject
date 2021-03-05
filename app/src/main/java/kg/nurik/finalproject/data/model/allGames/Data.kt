@@ -1,12 +1,19 @@
 package kg.nurik.finalproject.data.model.allGames
 
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Entity
+@Parcelize
 data class Data(
-    val continent: String,
-    @SerializedName("country_code")
-    val countryCode: Any,
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("country_id")
-    val countryId: Int,
-    val name: String
-)
+    val countryId: Int?,
+    val name: String?,
+    @SerializedName("country_code")
+    val countryCode: String?,
+    val continent: String?
+) : Parcelable

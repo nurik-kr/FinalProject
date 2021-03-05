@@ -11,6 +11,7 @@
     <string name="all_games">Все игры</string>
     <string name="my_commands">Мои команды</string>
     <string name="tournaments">Турниры</string>
+    <string name="DateFormat">2020–09–09</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="football">Футбол</string>
@@ -23,4 +24,5 @@
     <string name="xokei">Хоккей</string>
     <string name="basketball">Баскетбол</string>
     <string name="tennis">Теннис</string>
+    <string name="liga_isCountry">Лиги этой Страны:</string>
 </resources>

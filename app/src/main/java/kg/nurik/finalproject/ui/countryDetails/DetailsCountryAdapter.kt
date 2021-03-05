@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.ui.bottomNav.allGames
+package kg.nurik.finalproject.ui.countryDetails
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kotlinx.android.synthetic.main.item_all_games.view.*
 
-class AllCountryAdapter(private val listener: (item: Data) -> Unit) :
+class DetailsCountryAdapter(private val listener: (item: Data) -> Unit) :
     RecyclerView.Adapter<ViewHolder>() {
 
     private val list = arrayListOf<Data>()
@@ -36,12 +36,11 @@ class AllCountryAdapter(private val listener: (item: Data) -> Unit) :
 
 class ViewHolder(view: View, private val listener: (item: Data) -> Unit) :
     RecyclerView.ViewHolder(view) {
-
-    fun bind(point: Data?) {
-        itemView.tv_name.text = point?.name
+    fun bind(point: Data) {
+        itemView.tv_name.text = point.name
 
         itemView.setOnClickListener {
-            point?.let { it1 -> listener.invoke(it1) }
+            listener.invoke(point)
         }
     }
 }

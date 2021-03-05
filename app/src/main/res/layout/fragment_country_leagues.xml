@@ -12,7 +12,7 @@
         android:background="#CCCAC9C4"
         android:padding="1dp"
         android:paddingStart="11dp"
-        android:text="@string/others"
+        android:text="@string/liga_isCountry"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="normal"
@@ -21,7 +21,7 @@
         tools:ignore="RtlSymmetry" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Recyclerview_details_country"
+        android:id="@+id/Recyclerview_liga_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
