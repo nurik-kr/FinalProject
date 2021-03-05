@@ -1,36 +1,37 @@
-package kg.nurik.finalproject.ui.bottomNav.allGames
+package kg.nurik.finalproject.ui.bottomNav.tournaments
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
-import kg.nurik.finalproject.data.model.allGames.Data
+import kg.nurik.finalproject.data.model.season.BaseSeason
+import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AllGamesViewModel(
+class TournamentsViewModel(
     private val repository: Repository,
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {
 
     init {
-        loadCategories()
+        loadSeason()
     }
 
-    private fun loadCategories() {
+    private fun loadSeason() {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                repository.loadData()
+                repository.loadSeasons(apiKey = "91edefc0-74f2-11eb-b8af-b7d03964d7a1",season_id = 496)
             }.onFailure {
-                Log.d("Error", it.localizedMessage)
+                Log.d("ssasdas", it.localizedMessage)
             }
         }
     }
 
-    fun getAllGames(): LiveData<List<Data>> {
-        return db.getPagingCasheDao().getAllGames()
+    fun getAllSeason(): LiveData<List<DataSeason>> {
+        return db.getPagingCasheDao().getAllSeason()
     }
 
 }

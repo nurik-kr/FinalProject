@@ -1,5 +1,8 @@
 package kg.nurik.finalproject.data.model.allGames
 
-data class BaseList(
-    val data: List<Data>
+import androidx.room.Entity
+
+@Entity
+data class BaseList<T>(
+    val data: List<T>
 )

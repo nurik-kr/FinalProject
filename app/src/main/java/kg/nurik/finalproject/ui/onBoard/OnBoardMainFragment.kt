@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.onBoard.OnBoardModel
-import kg.nurik.finalproject.data.local.PreferenceHelper
+import kg.nurik.finalproject.data.local.sharedPreferences.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_on_board.*
 
 class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {

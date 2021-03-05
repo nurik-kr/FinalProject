@@ -27,16 +27,17 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
     }
 
     private fun setupViews() {
-        vm.dataCategories.observe(viewLifecycleOwner, Observer {
+        vm.getAllGames().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
         })
     }
 
     private fun navigateToDetails(data: Data) {
         val direction =
-            AllGamesFragmentDirections
-                .actionNavigationAllGamesToCountryDetailsFragment2(data.name) //тут передаем значение
-        findNavController().navigate(direction)
+            data?.continent?.let {
+                AllGamesFragmentDirections
+                    .actionNavigationAllGamesToCountryDetailsFragment2(it)
+            } //тут передаем значение
+        findNavController().navigate(direction!!)
     }
-
 }
