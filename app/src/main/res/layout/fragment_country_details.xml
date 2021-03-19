@@ -1,34 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="@color/bg_parent">
 
-    <TextView
-        android:id="@+id/tv_country"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentToolbarCity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#CCCAC9C4"
-        android:padding="1dp"
-        android:paddingStart="11dp"
-        android:text="@string/others"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry" />
+        android:layout_height="@dimen/dp50"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_toolbar_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_black_toolbar"
+            android:gravity="center"
+            android:text="@string/city"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintBottom_toBottomOf="@id/parentToolbarCity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/parentToolbarCity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recyclerview_details_country"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
-        tools:listitem="@layout/item_all_games"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_country" />
+        app:layout_constraintTop_toBottomOf="@id/parentToolbarCity"
+        tools:listitem="@layout/item_all_games" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_back_button"
+        app:layout_constraintBottom_toBottomOf="@id/parentToolbarCity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/parentToolbarCity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

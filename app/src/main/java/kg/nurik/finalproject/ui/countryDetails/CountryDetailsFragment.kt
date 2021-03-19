@@ -26,6 +26,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
         binding.RecyclerviewDetailsCountry.adapter = adapter
         setupViews()
         setupViewModel()
+        setupListener()
     }
 
     private fun setupViewModel() {
@@ -47,5 +48,11 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
                 )
             }
         findNavController().navigate(direction!!)
+    }
+
+    private fun setupListener() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

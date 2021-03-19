@@ -10,4 +10,5 @@
     <color name="colorLightGrey">#949E9E</color>
     <color name="colorBlue">#1731C5</color>
     <color name="color_favourite">#C6B249</color>
+    <color name="bg_parent">#181829</color>
 </resources>

@@ -2,6 +2,7 @@ package kg.nurik.finalproject.ui.bottomNav.allGames
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -27,8 +28,10 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
     }
 
     private fun setupViews() {
+        binding.progressBarProchie.visibility = ProgressBar.VISIBLE
         vm.getAllGames().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
+            binding.progressBarProchie.visibility = ProgressBar.INVISIBLE;
         })
     }
 

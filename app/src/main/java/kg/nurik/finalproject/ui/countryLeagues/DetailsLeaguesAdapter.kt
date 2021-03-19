@@ -5,19 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kg.nurik.finalproject.R
-import kg.nurik.finalproject.data.model.allGames.BaseList
-import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.leagues.Leagues
 import kotlinx.android.synthetic.main.item_all_games.view.*
 
-class DetailsLeaguesAdapter : RecyclerView.Adapter<ViewHolder>() {
+class DetailsLeaguesAdapter(private val listener: (item: Leagues) -> Unit) :
+    RecyclerView.Adapter<ViewHolder>() {
 
     private val list = arrayListOf<Leagues>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_all_games, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, listener)
     }
 
     fun update(list: List<Leagues>) {
@@ -35,9 +34,15 @@ class DetailsLeaguesAdapter : RecyclerView.Adapter<ViewHolder>() {
     override fun getItemCount() = list.size
 }
 
-class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ViewHolder(view: View, private val listener: (item: Leagues) -> Unit) :
+    RecyclerView.ViewHolder(view) {
 
-    fun bind(point: Leagues) {
-        itemView.tv_name.text = point.name
+    fun bind(point: Leagues?) {
+        itemView.tv_name.text = point?.name
+
+        itemView.setOnClickListener {
+            listener.invoke(point!!)
+        }
     }
+
 }

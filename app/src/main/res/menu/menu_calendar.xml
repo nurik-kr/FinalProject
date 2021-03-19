@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/all_games"
+        android:id="@+id/menu_calendar"
         android:enabled="true"
-        android:icon="@drawable/ic_all_games"
+        android:icon="@drawable/ic_baseline_date_range_24"
         android:title="@string/all_games"
         app:showAsAction="always" />
 
