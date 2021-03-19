@@ -3,8 +3,10 @@ package kg.nurik.finalproject.ui.bottomNav.tournaments
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
@@ -24,6 +26,7 @@ class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.RecyclerviewTournament.adapter = adapter
+        binding.toolbarCustom.overflowIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_date_range_24);
         setupViews()
     }
 

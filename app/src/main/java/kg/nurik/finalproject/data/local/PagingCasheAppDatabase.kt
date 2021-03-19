@@ -15,11 +15,9 @@ import kg.nurik.finalproject.data.model.season.*
 @TypeConverters(value = [TypeConvertersList::class])
 abstract class PagingCasheAppDatabase : RoomDatabase() {
     abstract fun getPagingCasheDao(): PagingCasheDao
-
     companion object {
         fun getInstanceDB(context: Context): PagingCasheAppDatabase {
             return Room.databaseBuilder(context, PagingCasheAppDatabase::class.java, "myDb")
-
                 .fallbackToDestructiveMigration()
                 .build()
         }
