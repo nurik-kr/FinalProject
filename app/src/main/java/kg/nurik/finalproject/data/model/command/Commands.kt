@@ -1,15 +1,14 @@
-package kg.nurik.finalproject.data.model.season
+package kg.nurik.finalproject.data.model.command
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kg.nurik.finalproject.data.model.allGames.Data
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
-data class AwayTeam(
-    val logo: String?,
+data class Commands(
+    @SerializedName("team_id")
+    val teamId: String?,
     val name: String?,
     @SerializedName("short_code")
     val shortCode: String?,
+    val logo: String?,
     val country: Data?
-) : Parcelable
+)

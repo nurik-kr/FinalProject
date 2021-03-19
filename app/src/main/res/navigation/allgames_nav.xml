@@ -14,9 +14,7 @@
             android:id="@+id/action_navigation_all_games_to_countryDetailsFragment2"
             app:destination="@id/countryDetailsFragment2"
             app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -30,17 +28,29 @@
         <action
             android:id="@+id/action_countryDetailsFragment2_to_countryLeaguesFragment"
             app:destination="@id/countryLeaguesFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/countryLeaguesFragment"
         android:name="kg.nurik.finalproject.ui.countryLeagues.CountryLeaguesFragment"
-        android:label="CountryLeaguesFragment" >
+        android:label="CountryLeaguesFragment">
         <argument
             android:name="leagues"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_countryLeaguesFragment_to_leaguesToCommandsFragment"
+            app:destination="@id/leaguesToCommandsFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaguesToCommandsFragment"
+        android:name="kg.nurik.finalproject.ui.LegauesToCommands.LeaguesToCommandsFragment"
+        android:label="fragment_leagues_to_commands"
+        tools:layout="@layout/fragment_leagues_to_commands">
+        <argument
+            android:name="leaguesToCommands"
             app:argType="integer" />
     </fragment>
 

@@ -7,6 +7,7 @@ import kg.nurik.finalproject.data.remote.RetrofitBuilder
 import kg.nurik.finalproject.data.remote.Service
 import kg.nurik.finalproject.data.repository.Repository
 import kg.nurik.finalproject.data.repository.RepositoryImpl
+import kg.nurik.finalproject.ui.LegauesToCommands.LeaguesToCommandViewModel
 import kg.nurik.finalproject.ui.bottomNav.allGames.AllGamesViewModel
 import kg.nurik.finalproject.ui.bottomNav.tournaments.TournamentsViewModel
 import kg.nurik.finalproject.ui.countryDetails.CountryDetailsViewModel
@@ -21,6 +22,7 @@ val viewModelModule: Module = module {
     viewModel { CountryDetailsViewModel(get()) }
     viewModel { CountryLeaguesViewModel(get()) }
     viewModel { TournamentsViewModel(get(),get()) }
+    viewModel { LeaguesToCommandViewModel(get()) }
 }
 
 val dbModule: Module = module {
