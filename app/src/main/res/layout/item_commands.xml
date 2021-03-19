@@ -34,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/image_home_team"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
                 android:src="@drawable/logo_teams"
                 app:layout_constraintBottom_toBottomOf="@id/parent_image_home"
                 app:layout_constraintEnd_toEndOf="@id/parent_image_home"
@@ -93,8 +93,8 @@
 
             <ImageView
                 android:id="@+id/image_away_team"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
                 android:src="@drawable/logo_teams"
                 app:layout_constraintBottom_toBottomOf="@id/parent_image_away"
                 app:layout_constraintEnd_toEndOf="@id/parent_image_away"
