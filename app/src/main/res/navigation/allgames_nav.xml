@@ -34,6 +34,7 @@
     <fragment
         android:id="@+id/countryLeaguesFragment"
         android:name="kg.nurik.finalproject.ui.countryLeagues.CountryLeaguesFragment"
+        tools:layout="@layout/fragment_country_leagues"
         android:label="CountryLeaguesFragment">
         <argument
             android:name="leagues"
@@ -46,12 +47,24 @@
     </fragment>
     <fragment
         android:id="@+id/leaguesToCommandsFragment"
-        android:name="kg.nurik.finalproject.ui.LegauesToCommands.LeaguesToCommandsFragment"
+        android:name="kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandsFragment"
         android:label="fragment_leagues_to_commands"
         tools:layout="@layout/fragment_leagues_to_commands">
         <argument
             android:name="leaguesToCommands"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_leaguesToCommandsFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="kg.nurik.finalproject.ui.commandToPlayers.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" >
+        <argument
+            android:name="countryId"
+            app:argType="kg.nurik.finalproject.data.model.allGames.Data" />
     </fragment>
 
 </navigation>

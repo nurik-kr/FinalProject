@@ -126,7 +126,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="35dp"
+        app:layout_constraintBottom_toBottomOf="@id/container_home_team"
         app:layout_constraintEnd_toStartOf="@id/container_away_team"
         app:layout_constraintStart_toEndOf="@id/container_home_team"
         app:layout_constraintTop_toTopOf="@id/container_home_team">
@@ -136,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:text="2"
+            tools:text="2"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -160,7 +160,7 @@
             android:id="@+id/tv_chet_away_team"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="3"
+            tools:text="3"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -180,14 +180,14 @@
         app:layout_constraintStart_toStartOf="@id/container_home_team"
         app:layout_constraintTop_toBottomOf="@id/container_home_team">
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_shooting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="8"
+            tools:text="8"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -199,33 +199,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Shooting"
+            android:text="@string/shooting"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_shooting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="4"
+            tools:text="4"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_attacks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -237,32 +237,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Attacks"
+            android:text="@string/attacks"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_shooting" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_attacks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/id_attacks" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_possesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -274,20 +274,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Possesion"
+            android:text="@string/possesion"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_attacks" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_possesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -302,13 +302,13 @@
             app:layout_constraintEnd_toStartOf="@id/id_cards"
             app:layout_constraintTop_toTopOf="@id/id_cards" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -320,32 +320,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Cards"
+            android:text="@string/cards"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_possesion" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/id_cards" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_corner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -357,32 +357,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Corners"
+            android:text="@string/corners"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_cards" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_corner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/id_corners" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_fouls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -394,32 +394,32 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Fouls"
+            android:text="@string/fouls"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_corners" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_fouls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/id_fouls" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_offsides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="5"
+            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -431,20 +431,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Offsides"
+            android:text="@string/offsides"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_fouls" />
 
-        <TextView
+        <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_away_offsides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            android:text="1"
+            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -7,9 +7,10 @@ import kg.nurik.finalproject.data.remote.RetrofitBuilder
 import kg.nurik.finalproject.data.remote.Service
 import kg.nurik.finalproject.data.repository.Repository
 import kg.nurik.finalproject.data.repository.RepositoryImpl
-import kg.nurik.finalproject.ui.LegauesToCommands.LeaguesToCommandViewModel
+import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
 import kg.nurik.finalproject.ui.bottomNav.allGames.AllGamesViewModel
 import kg.nurik.finalproject.ui.bottomNav.tournaments.TournamentsViewModel
+import kg.nurik.finalproject.ui.commandToPlayers.PlayersViewModel
 import kg.nurik.finalproject.ui.countryDetails.CountryDetailsViewModel
 import kg.nurik.finalproject.ui.countryLeagues.CountryLeaguesViewModel
 import org.koin.android.ext.koin.androidApplication
@@ -23,6 +24,7 @@ val viewModelModule: Module = module {
     viewModel { CountryLeaguesViewModel(get()) }
     viewModel { TournamentsViewModel(get(),get()) }
     viewModel { LeaguesToCommandViewModel(get()) }
+    viewModel { PlayersViewModel(get()) }
 }
 
 val dbModule: Module = module {

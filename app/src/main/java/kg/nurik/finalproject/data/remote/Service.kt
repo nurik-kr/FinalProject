@@ -4,6 +4,7 @@ import kg.nurik.finalproject.data.model.allGames.BaseList
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.countryDet.CountryEntity
+import kg.nurik.finalproject.data.model.players.Players
 import kg.nurik.finalproject.data.model.season.BaseSeason
 import kg.nurik.finalproject.data.model.season.DataSeason
 import retrofit2.Response
@@ -40,6 +41,14 @@ interface Service {
         @Query("apikey") apikey: String,
         @Query("season_id") seasonId: Int
     ): Response<BaseSeason<DataSeason>>
+
+    @GET("api/v1/soccer/players")
+    suspend fun loadPlayers(
+        @Query("apikey") apikey: String,
+        @Query("country_id") countryId: Int?
+    ): Response<BaseList<Players>>
+
+//    https://app.sportdataapi.com/api/v1/soccer/players?apikey=91edefc0-74f2-11eb-b8af-b7d03964d7a1&country_id=25
 
     //  https://app.sportdataapi.com/api/v1/soccer/matches?apikey=91edefc0-74f2-11eb-b8af-b7d03964d7a1&
 // season_id=496&date_from=2020-09-19

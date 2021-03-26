@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 data class Data(
     @PrimaryKey(autoGenerate = true)
     @SerializedName("country_id")
-    val countryId: Int?,
+    var countryId: Int?,
     val name: String?,
     @SerializedName("country_code")
     val countryCode: String?,

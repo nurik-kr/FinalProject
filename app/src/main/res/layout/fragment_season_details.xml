@@ -28,15 +28,19 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-        layout="@layout/item_commands"
-        android:id="@+id/item_commands"
-        android:layout_width="0dp"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/parentToolbarItemCommands" />
+        app:layout_constraintTop_toBottomOf="@id/parentToolbarItemCommands">
+
+        <include
+            android:id="@+id/item_commands"
+            layout="@layout/item_commands" />
+
+    </androidx.core.widget.NestedScrollView>
 
     <ImageView
         android:id="@+id/btnBack"

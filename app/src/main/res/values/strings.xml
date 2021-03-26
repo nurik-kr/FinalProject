@@ -44,4 +44,11 @@
     <string name="capasite">75000</string>
     <string name="city_name">Munich</string>
     <string name="city_n">City</string>
+    <string name="shooting">Shooting</string>
+    <string name="attacks">Attacks</string>
+    <string name="possesion">Possesion</string>
+    <string name="corners">Corners</string>
+    <string name="fouls">Fouls</string>
+    <string name="offsides">Offsides</string>
+    <string name="cards">Cards</string>
 </resources>
