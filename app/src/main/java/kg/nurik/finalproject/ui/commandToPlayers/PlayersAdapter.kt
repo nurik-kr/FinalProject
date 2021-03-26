@@ -1,18 +1,16 @@
-package kg.nurik.finalproject.ui.LegauesToCommands
+package kg.nurik.finalproject.ui.commandToPlayers
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
-import kg.nurik.finalproject.data.model.command.Commands
-import kotlinx.android.synthetic.main.item_all_games.view.*
+import kg.nurik.finalproject.data.model.players.Players
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class LeaguesToCommandAdapter : RecyclerView.Adapter<ViewHolder>() {
+class PlayersAdapter : RecyclerView.Adapter<ViewHolder>() {
 
-    private val list = arrayListOf<Commands>()
+    private val list = arrayListOf<Players>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -20,7 +18,7 @@ class LeaguesToCommandAdapter : RecyclerView.Adapter<ViewHolder>() {
         return ViewHolder(view)
     }
 
-    fun update(list: List<Commands>?) {
+    fun update(list: List<Players>?) {
         if (list != null) {
             this.list.clear()
             this.list.addAll(list)
@@ -37,10 +35,9 @@ class LeaguesToCommandAdapter : RecyclerView.Adapter<ViewHolder>() {
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    fun bind(point: Commands) {
-        itemView.tv_commands.text = point.name
-        itemView.tv_short_code.text = point.shortCode
-        Picasso.get().load(point.logo).into(itemView.image_logo)
-
+    fun bind(point: Players?) {
+        itemView.tv_commands.text = point?.firstname
+        itemView.tv_short_code.text = point?.lastname
+//        Picasso.get().load(point?.img).into(itemView.image_logo)
     }
 }

@@ -25,15 +25,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/parentToolbar" />
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarCustom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/MyApp.PopupMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/menu_calendar"
-
-            app:popupTheme="@style/MyApp.PopupMenu" />
+            app:menu="@menu/menu_calendar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

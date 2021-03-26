@@ -1,7 +1,6 @@
 package kg.nurik.finalproject.ui.countryLeagues
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -42,7 +41,6 @@ class CountryLeaguesFragment : Fragment(R.layout.fragment_country_leagues) {
         val categoryId = args.leagues
         categoryId.let {
             vm.loadLeagues(it)
-            Log.d("asdasdas", "asdasdassd")
         }
     }
 

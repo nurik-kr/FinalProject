@@ -12,8 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:popupMenuStyle">@style/MyApp.PopupMenu</item>
-        <item name="android:actionBarStyle">@style/MyApp.ActionBar</item>
     </style>
 
     <style name="CircularProgress" parent="Theme.AppCompat.Light">
@@ -28,14 +26,9 @@
         <item name="android:src">@drawable/ic_baseline_date_range_24</item>
     </style>
 
-    <style name="MyApp.PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
-        <item name="android:popupBackground">@color/bg_parent</item>
-    </style>
-
-    <!-- Bonus: if you want to style whole Action Bar, not just the menu -->
-    <style name="MyApp.ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid">
-        <!-- Blue background color & black bottom border -->
-        <item name="android:background">@android:color/black</item>
+    <style name="MyApp.PopupMenu" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorSurface">#14141C</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>

@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bg_parent">
+    android:background="@color/bg_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,39 +17,68 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_logo"
-            android:layout_width="@dimen/dp80"
-            android:layout_height="@dimen/dp80"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/logo_container"
+            android:layout_width="@dimen/dp85"
+            android:layout_height="@dimen/dp85"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_item_home_team"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60"
+            app:layout_constraintBottom_toBottomOf="@id/logo_container"
+            app:layout_constraintEnd_toEndOf="@id/logo_container"
+            app:layout_constraintStart_toStartOf="@id/logo_container"
+            app:layout_constraintTop_toTopOf="@id/logo_container" />
 
         <TextView
             android:id="@+id/tv_commands"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/source_sans_pro_semi_bold_italic"
             android:maxLines="1"
+            android:text="@string/games_season"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/sp16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image_logo"
+            app:layout_constraintEnd_toStartOf="@id/checkbox"
+            app:layout_constraintStart_toEndOf="@id/logo_container"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_short_code"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="55dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/source_sans_pro_semi_bold_italic"
             android:maxLines="1"
+            android:text="@string/games_season"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/sp16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image_logo"
+            app:layout_constraintEnd_toStartOf="@id/checkbox"
+            app:layout_constraintStart_toEndOf="@id/logo_container"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sp24"
+            android:button="@drawable/bg_btn_favorite"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="@id/tv_short_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_commands"
+            app:layout_constraintTop_toTopOf="@id/tv_commands" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

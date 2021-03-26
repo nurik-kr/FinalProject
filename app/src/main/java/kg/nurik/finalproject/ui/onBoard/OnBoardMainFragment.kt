@@ -50,6 +50,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
         }
         tvSkip.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardMainFragment_to_mainActivity)
+            requireActivity().finish()
         }
         tvBack.setOnClickListener {
             onBoardViewPager.currentItem -= 1

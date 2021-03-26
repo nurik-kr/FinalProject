@@ -42,7 +42,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
 
     private fun navigateToLeagues(data: Data) {
         val direction =
-            data?.countryId?.let {
+            data.countryId?.let {
                 CountryDetailsFragmentDirections.actionCountryDetailsFragment2ToCountryLeaguesFragment(
                     it
                 )

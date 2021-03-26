@@ -12,4 +12,7 @@
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp35">35dp</dimen>
     <dimen name="dp55">55dp</dimen>
+    <dimen name="dp70">70dp</dimen>
+    <dimen name="dp85">85dp</dimen>
+    <dimen name="dp60">60dp</dimen>
 </resources>
