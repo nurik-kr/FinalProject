@@ -3,18 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/bg_parent"
     tools:context=".ui.commandToPlayers.PlayersFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentToolbarPlayers"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_toolbar_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_black_toolbar"
+            android:gravity="center"
+            android:text="@string/players_commands"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintBottom_toBottomOf="@id/parentToolbarPlayers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/parentToolbarPlayers" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_in"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/Recyclerview_players"
+        app:layout_constraintEnd_toEndOf="@id/Recyclerview_players"
+        app:layout_constraintStart_toStartOf="@id/Recyclerview_players"
+        app:layout_constraintTop_toTopOf="@id/Recyclerview_players" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recyclerview_players"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/parentToolbarPlayers"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_players" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_back_button"
+        app:layout_constraintBottom_toBottomOf="@id/parentToolbarPlayers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/parentToolbarPlayers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

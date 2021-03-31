@@ -23,8 +23,8 @@ val viewModelModule: Module = module {
     viewModel { CountryDetailsViewModel(get()) }
     viewModel { CountryLeaguesViewModel(get()) }
     viewModel { TournamentsViewModel(get(),get()) }
-    viewModel { LeaguesToCommandViewModel(get()) }
-    viewModel { PlayersViewModel(get()) }
+    viewModel { LeaguesToCommandViewModel(get(),get()) }
+    viewModel { PlayersViewModel(get(),get()) }
 }
 
 val dbModule: Module = module {

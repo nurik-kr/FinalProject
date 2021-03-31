@@ -35,8 +35,8 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
 
     private fun setupViewModel() {
         binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
-        vm.dataCommands.observe(viewLifecycleOwner, Observer {
-            adapter.update(it.data)
+        vm.getAllCommands().observe(viewLifecycleOwner, Observer {
+            adapter.update(it)
             binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
         })
     }

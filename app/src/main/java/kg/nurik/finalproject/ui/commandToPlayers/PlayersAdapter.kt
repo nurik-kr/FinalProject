@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.players.Players
-import kotlinx.android.synthetic.main.item_news.view.*
+import kotlinx.android.synthetic.main.item_players.view.*
 
 class PlayersAdapter : RecyclerView.Adapter<ViewHolder>() {
 
@@ -14,7 +15,7 @@ class PlayersAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_players, parent, false)
         return ViewHolder(view)
     }
 
@@ -36,8 +37,15 @@ class PlayersAdapter : RecyclerView.Adapter<ViewHolder>() {
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(point: Players?) {
-        itemView.tv_commands.text = point?.firstname
-        itemView.tv_short_code.text = point?.lastname
-//        Picasso.get().load(point?.img).into(itemView.image_logo)
+        itemView.tv_firstName.text = point?.firstname
+        itemView.tv_lastName.text = point?.lastname
+
+        if (!point?.img.isNullOrEmpty()) {
+            Picasso.get()
+                .load(point?.img)
+                .placeholder(R.drawable.logo_teams)
+                .error(R.drawable.logo_teams)
+                .into(itemView.image_player)
+        }
     }
 }

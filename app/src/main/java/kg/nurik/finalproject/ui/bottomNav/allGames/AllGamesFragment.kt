@@ -10,6 +10,8 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
+import kotlinx.android.synthetic.main.item_all_games.*
+import kotlinx.android.synthetic.main.item_all_games.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
@@ -31,7 +33,9 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         binding.progressBarProchie.visibility = ProgressBar.VISIBLE
         vm.getAllGames().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
-            binding.progressBarProchie.visibility = ProgressBar.INVISIBLE;
+            binding.progressBarProchie.visibility = ProgressBar.INVISIBLE
+//            val size = it.size
+//            tv_count?.text = size.toString()
         })
     }
 

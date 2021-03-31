@@ -49,6 +49,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             }
         }
         tvSkip.setOnClickListener {
+            PreferenceHelper.setIsFirstLaunch()
             findNavController().navigate(R.id.action_onBoardMainFragment_to_mainActivity)
             requireActivity().finish()
         }

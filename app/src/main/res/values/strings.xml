@@ -51,4 +51,7 @@
     <string name="fouls">Fouls</string>
     <string name="offsides">Offsides</string>
     <string name="cards">Cards</string>
+    <string name="firsname">FirsName</string>
+    <string name="lastName">lastName</string>
+    <string name="players_commands">Игроки этой команды</string>
 </resources>
