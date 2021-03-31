@@ -10,6 +10,7 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentCountryDetailsBinding
 import kg.nurik.finalproject.utils.viewBinding
+import kotlinx.android.synthetic.main.item_all_games.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
@@ -32,6 +33,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
     private fun setupViewModel() {
         vm.dataCountry.observe(viewLifecycleOwner, Observer {
             adapter.update(it.data)
+//            binding.RecyclerviewDetailsCountry.tv_count?.text = it.data.size.toString()
         })
     }
 

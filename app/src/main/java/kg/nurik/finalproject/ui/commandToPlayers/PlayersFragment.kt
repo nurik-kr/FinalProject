@@ -26,8 +26,8 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
     }
 
     private fun setupViewModel() {
-        vm.dataPlayers.observe(viewLifecycleOwner, Observer {
-            adapter.update(it.data)
+        vm.getAllPlayers().observe(viewLifecycleOwner, Observer {
+            adapter.update(it)
         })
     }
 
@@ -36,6 +36,4 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         countryId.let { vm.loadPlayers(it) }
         Log.d("Error", "message")
     }
-
-
 }

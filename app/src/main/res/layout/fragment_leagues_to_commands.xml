@@ -57,7 +57,7 @@
         android:id="@+id/btnBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="18dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_arrow_back_button"
