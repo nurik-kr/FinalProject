@@ -2,41 +2,42 @@ package kg.nurik.finalproject.ui.bottomNav.tournaments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import kg.nurik.finalproject.R
-import kg.nurik.finalproject.data.model.season.DataSeason
+import kg.nurik.finalproject.data.model.ViewPagerModel
 import kg.nurik.finalproject.databinding.FragmentTournamentsBinding
+import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonFragment
+import kg.nurik.finalproject.ui.topScorers.TopScorersFragment
 import kg.nurik.finalproject.utils.viewBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
 
-    private val vm by viewModel<TournamentsViewModel>()
     private val binding by viewBinding(FragmentTournamentsBinding::bind)
-    private val adapter = TournamentsAdapter { navigateToStats(it) }
+    private var adapter: PagerAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.RecyclerviewTournament.adapter = adapter
-        binding.toolbarCustom.overflowIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_date_range_24);
-        setupViews()
+        setupViewPager()
     }
 
-    private fun setupViews() {
-        binding.progressBarTournaments.visibility = ProgressBar.VISIBLE
-        vm.getAllSeason().observe(viewLifecycleOwner, Observer {
-            adapter.update(it)
-            binding.progressBarTournaments.visibility = ProgressBar.INVISIBLE
-        })
+    private fun setupViewPager() {
+        adapter = PagerAdapter(requireActivity())
+        binding.viewPager.adapter = adapter
+        binding.viewPager.isUserInputEnabled = false
+        TabLayoutMediator(binding.tableLayout, binding.viewPager) { tab, pos ->
+            tab.text = adapter?.getCurrentItem(pos)?.title
+        }.attach()
+        adapter?.update(getDataForPager())
+        binding.toolbarCustom.overflowIcon =
+            ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_date_range_24)
     }
 
-    private fun navigateToStats(data: DataSeason) {
-        val directions =
-            TournamentsFragmentDirections.actionNavigationTournamentsToSeasonDetailsFragment(data)
-        findNavController().navigate(directions)
+    private fun getDataForPager(): ArrayList<ViewPagerModel> {
+        val list = arrayListOf<ViewPagerModel>()
+        list.add(ViewPagerModel(GamesSeasonFragment(), "Игры по сезонам"))
+        list.add(ViewPagerModel(TopScorersFragment(), "Лучшие бомбардиры"))
+        return list
     }
 }
