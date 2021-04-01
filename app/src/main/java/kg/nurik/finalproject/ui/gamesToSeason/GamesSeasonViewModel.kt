@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.ui.bottomNav.tournaments
+package kg.nurik.finalproject.ui.gamesToSeason
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TournamentsViewModel(
+class GamesSeasonViewModel(
     private val repository: Repository,
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {

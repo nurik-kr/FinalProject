@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#181829">
@@ -17,7 +16,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/source_sans_pro_black_toolbar"
             android:gravity="center"
-            android:text="@string/games_season"
+            android:text="@string/season"
             android:textColor="@color/white"
             android:textSize="@dimen/sp24"
             app:layout_constraintBottom_toBottomOf="@id/parentToolbar"
@@ -28,7 +27,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarCustom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp45"
             android:theme="@style/MyApp.PopupMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,28 +35,21 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar_tournaments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTintMode="src_in"
-        android:theme="@style/CircularProgress"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@id/Recyclerview_tournament"
-        app:layout_constraintEnd_toEndOf="@id/Recyclerview_tournament"
-        app:layout_constraintStart_toStartOf="@id/Recyclerview_tournament"
-        app:layout_constraintTop_toTopOf="@+id/Recyclerview_tournament" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/parentToolbar"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="#8A8A8A" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Recyclerview_tournament"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/parentToolbar"
-        tools:listitem="@layout/item_games_season" />
+        app:layout_constraintTop_toBottomOf="@id/tableLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

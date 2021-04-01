@@ -11,4 +11,8 @@
     <color name="colorBlue">#1731C5</color>
     <color name="color_favourite">#C6B249</color>
     <color name="bg_parent">#181829</color>
+    <color name="color_purple">#FFFFFFFF</color>
+    <color name="color_purple_dark">#6a3c73</color>
+    <color name="color_orange">#f9b32a</color>
+    <color name="color_selected_tab">#ab73b6</color>
 </resources>

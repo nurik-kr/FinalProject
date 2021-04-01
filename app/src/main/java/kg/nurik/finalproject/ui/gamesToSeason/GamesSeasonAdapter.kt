@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.ui.bottomNav.tournaments
+package kg.nurik.finalproject.ui.gamesToSeason
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.season.DataSeason
 import kotlinx.android.synthetic.main.item_games_season.view.*
 
-class TournamentsAdapter(private val listener: (item: DataSeason) -> Unit) :
+class GamesSeasonAdapter(private val listener: (item: DataSeason) -> Unit) :
     RecyclerView.Adapter<ViewHolder>() {
 
     private val list = arrayListOf<DataSeason>()

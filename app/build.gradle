@@ -67,7 +67,7 @@ dependencies {
         transitive = true
     }
 
-    implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha02'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     //Retrofit

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/source_sans_pro_black_toolbar"
             android:gravity="center"
-            android:text="@string/city"
+            android:text="@string/all_country"
             android:textColor="@color/white"
             android:textSize="@dimen/sp24"
             app:layout_constraintBottom_toBottomOf="@id/parentToolbarCity"

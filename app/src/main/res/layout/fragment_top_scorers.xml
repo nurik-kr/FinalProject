@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_parent"
+    tools:context=".ui.topScorers.TopScorersFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar_top_scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_in"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/Recyclerview_top_scores"
+        app:layout_constraintEnd_toEndOf="@id/Recyclerview_top_scores"
+        app:layout_constraintStart_toStartOf="@id/Recyclerview_top_scores"
+        app:layout_constraintTop_toTopOf="@+id/Recyclerview_top_scores" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recyclerview_top_scores"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_top_scores" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
