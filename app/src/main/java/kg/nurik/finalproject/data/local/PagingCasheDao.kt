@@ -62,15 +62,20 @@ interface PagingCasheDao {
     fun getAllPlayers(): LiveData<List<Players>>
 
     @Query("DELETE FROM players")
-    suspend fun  deleteAllPlayers()
+    suspend fun deleteAllPlayers()
 
+    @Update
+    suspend fun update(item: Commands)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Query("SELECT ALL * FROM Commands WHERE isChecked")
+    fun getFavorite(): LiveData<List<Commands>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertCommands(data: List<Commands>)
 
     @Query("SELECT * FROM commands")
     fun getAllCommands(): LiveData<List<Commands>>
 
     @Query("DELETE FROM commands")
-    suspend fun  deleteAllCommands()
+    suspend fun deleteAllCommands()
 }

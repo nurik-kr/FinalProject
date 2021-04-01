@@ -9,6 +9,19 @@
         android:id="@+id/navigation_my_commands"
         android:name="kg.nurik.finalproject.ui.bottomNav.myCommands.MyCommandsFragment"
         android:label="commands"
-        tools:layout="@layout/fragment_my_commands" />
+        tools:layout="@layout/fragment_my_commands">
+        <action
+            android:id="@+id/action_navigation_my_commands_to_playersFragment2"
+            app:destination="@id/playersFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersFragment2"
+        android:name="kg.nurik.finalproject.ui.commandToPlayers.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" />
+    <argument
+        android:name="countryId"
+        app:argType="kg.nurik.finalproject.data.model.allGames.Data" />
 
-</navigation>
+
+    </navigation>

@@ -17,5 +17,6 @@ data class Commands(
     @SerializedName("short_code")
     val shortCode: String?,
     val logo: String?,
-    val country: Data?
+    val country: Data?,
+    var isChecked: Boolean
 ): Parcelable

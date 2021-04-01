@@ -20,7 +20,7 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     private val binding by viewBinding(FragmentLeaguesToCommandsBinding::bind)
     private val vm by viewModel<LeaguesToCommandViewModel>()
     private val adapter by lazy {
-        LeaguesToCommandAdapter {
+        LeaguesToCommandAdapter(vm) {
             navigateCommandsToPlayers(it)
         }
     }
@@ -34,10 +34,11 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     }
 
     private fun setupViewModel() {
-        binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
+//        binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
         vm.getAllCommands().observe(viewLifecycleOwner, Observer {
+            binding.progressBarLeaguesToCommands.visibility  = view?.visibility!!
             adapter.update(it)
-            binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
+//            binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
         })
     }
 
