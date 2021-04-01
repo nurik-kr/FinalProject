@@ -12,11 +12,12 @@ import kg.nurik.finalproject.databinding.FragmentGamesSeasonBinding
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class GamesSeasonFragment : Fragment(R.layout.fragment_games_season) {
+class GamesSeasonFragment(private val listener: (data: DataSeason) -> Unit) :
+    Fragment(R.layout.fragment_games_season) {
 
     private val vm by viewModel<GamesSeasonViewModel>()
     private val binding by viewBinding(FragmentGamesSeasonBinding::bind)
-    private val adapter = GamesSeasonAdapter { navigateToStats(it) }
+    private val adapter = GamesSeasonAdapter { listener.invoke(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,15 +27,11 @@ class GamesSeasonFragment : Fragment(R.layout.fragment_games_season) {
 
     private fun setupViews() {
         binding.progressBarTournaments.visibility = ProgressBar.VISIBLE
-        vm.getAllSeason().observe(viewLifecycleOwner, Observer{
+        vm.getAllSeason().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
             binding.progressBarTournaments.visibility = ProgressBar.INVISIBLE
         })
     }
 
-    private fun navigateToStats(data: DataSeason) {
-//        val directions =
-//            GamesSeasonFragmentDirections.actionGamesSeasonFragmentToSeasonDetailsFragment(data)
-//        findNavController().navigate(directions)
-    }
+
 }

@@ -18,16 +18,21 @@
         android:id="@+id/seasonDetailsFragment"
         android:name="kg.nurik.finalproject.ui.seasonDetails.SeasonDetailsFragment"
         android:label="fragment_season_details"
-        tools:layout="@layout/fragment_season_details" />
-    <argument
-        android:name="stats"
-        app:argType="kg.nurik.finalproject.data.model.season.DataSeason"
-        app:nullable="true" />
+        tools:layout="@layout/fragment_season_details">
+        <argument
+            android:name="stats"
+            app:argType="kg.nurik.finalproject.data.model.season.DataSeason"
+            app:nullable="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/tournamentsFragment"
         android:name="kg.nurik.finalproject.ui.bottomNav.tournaments.TournamentsFragment"
         android:label="TournamentsFragment"
-        tools:layout="@layout/fragment_tournaments" />
+        tools:layout="@layout/fragment_tournaments" >
+        <action
+            android:id="@+id/action_tournamentsFragment_to_seasonDetailsFragment"
+            app:destination="@id/seasonDetailsFragment" />
+    </fragment>
 
 </navigation>

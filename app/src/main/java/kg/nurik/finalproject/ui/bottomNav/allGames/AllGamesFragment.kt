@@ -10,8 +10,7 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
-import kotlinx.android.synthetic.main.item_all_games.*
-import kotlinx.android.synthetic.main.item_all_games.view.*
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
@@ -22,10 +21,14 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
     private val adapter = AllCountryAdapter() {
         navigateToDetails(it)
     }
+    private val adapterFavourite = AllCountryAdapter(){
+//        navigateToDetails(it)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.RecyclerviewOthers.adapter = adapter
+        binding.RecyclerviewFavourite.adapter = adapterFavourite
         setupViews()
     }
 
@@ -34,10 +37,16 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         vm.getAllGames().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
             binding.progressBarProchie.visibility = ProgressBar.INVISIBLE
+            vm.getFavouriteFiveContinent(it)
 //            val size = it.size
 //            tv_count?.text = size.toString()
         })
+
+        vm.data.observe(viewLifecycleOwner, Observer {
+            adapterFavourite.update(it)
+        })
     }
+
 
     private fun navigateToDetails(data: Data) {
         val direction =
@@ -47,4 +56,6 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
             } //тут передаем значение
         findNavController().navigate(direction!!)
     }
+
+
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.databinding.FragmentPlayersBinding
@@ -23,6 +24,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         binding.RecyclerviewPlayers.adapter = adapter
         setupViewModel()
         setupViews()
+        setupListener()
     }
 
     private fun setupViewModel() {
@@ -35,5 +37,11 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         val countryId = args.countryId.countryId
         countryId.let { vm.loadPlayers(it) }
         Log.d("Error", "message")
+    }
+
+    private fun setupListener() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

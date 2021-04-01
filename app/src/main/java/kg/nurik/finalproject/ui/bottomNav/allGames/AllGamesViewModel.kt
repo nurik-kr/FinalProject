@@ -2,6 +2,7 @@ package kg.nurik.finalproject.ui.bottomNav.allGames
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
@@ -14,6 +15,8 @@ class AllGamesViewModel(
     private val repository: Repository,
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {
+
+    val data = MutableLiveData<List<Data>>()
 
     init {
         loadCategories()
@@ -31,6 +34,15 @@ class AllGamesViewModel(
 
     fun getAllGames(): LiveData<List<Data>> {
         return db.getPagingCasheDao().getAllGames()
+    }
+
+
+    fun getFavouriteFiveContinent(data: List<Data>) {
+        val list = ArrayList<Data>()
+        for (i in 0..5) {
+            list.add(data.random())
+        }
+        this.data.postValue(list)
     }
 
 }

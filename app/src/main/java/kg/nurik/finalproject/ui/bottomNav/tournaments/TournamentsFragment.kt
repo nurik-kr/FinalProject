@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.ViewPagerModel
+import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.databinding.FragmentTournamentsBinding
 import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonFragment
 import kg.nurik.finalproject.ui.topScorers.TopScorersFragment
@@ -36,8 +38,16 @@ class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
 
     private fun getDataForPager(): ArrayList<ViewPagerModel> {
         val list = arrayListOf<ViewPagerModel>()
-        list.add(ViewPagerModel(GamesSeasonFragment(), "Игры по сезонам"))
+        list.add(ViewPagerModel(GamesSeasonFragment() {
+            navigateToStats(it)
+        }, "Игры по сезонам"))
         list.add(ViewPagerModel(TopScorersFragment(), "Лучшие бомбардиры"))
         return list
+    }
+
+    private fun navigateToStats(data: DataSeason) {
+        val directions =
+            TournamentsFragmentDirections.actionTournamentsFragmentToSeasonDetailsFragment(data)
+        findNavController().navigate(directions)
     }
 }

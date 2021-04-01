@@ -45,7 +45,7 @@ class RepositoryImpl(
         val result =
             network.loadCommands("91edefc0-74f2-11eb-b8af-b7d03964d7a1", country_id = country_id)
         try {
-            result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertCommands(it) }
+            result.body()?.data?.let { db.getPagingCasheDao().insertCommands(it) }
         } catch (e: Exception) {
             Log.d("commands", e.localizedMessage)
         }

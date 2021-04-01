@@ -12,7 +12,7 @@ import kg.nurik.finalproject.data.model.season.*
 
 @Database(
     entities = [Data::class, DataSeason::class, Players::class, Commands::class],
-    version = 5
+    version = 6
 )
 @TypeConverters(value = [TypeConvertersList::class])
 abstract class PagingCasheAppDatabase : RoomDatabase() {

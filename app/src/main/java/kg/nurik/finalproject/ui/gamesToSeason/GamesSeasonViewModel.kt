@@ -20,10 +20,13 @@ class GamesSeasonViewModel(
         loadSeason()
     }
 
-    private fun loadSeason() {
+    private fun loadSeason(seasonId: Int = 496) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                repository.loadSeasons(apiKey = "91edefc0-74f2-11eb-b8af-b7d03964d7a1",season_id = 496)
+                repository.loadSeasons(
+                    apiKey = "91edefc0-74f2-11eb-b8af-b7d03964d7a1",
+                    season_id = seasonId
+                )
             }.onFailure {
                 Log.d("ssasdas", it.localizedMessage)
             }

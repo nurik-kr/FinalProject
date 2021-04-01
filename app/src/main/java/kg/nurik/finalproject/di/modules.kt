@@ -9,6 +9,7 @@ import kg.nurik.finalproject.data.repository.Repository
 import kg.nurik.finalproject.data.repository.RepositoryImpl
 import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
 import kg.nurik.finalproject.ui.bottomNav.allGames.AllGamesViewModel
+import kg.nurik.finalproject.ui.bottomNav.myCommands.MyCommandsViewModel
 import kg.nurik.finalproject.ui.commandToPlayers.PlayersViewModel
 import kg.nurik.finalproject.ui.countryDetails.CountryDetailsViewModel
 import kg.nurik.finalproject.ui.countryLeagues.CountryLeaguesViewModel
@@ -25,6 +26,7 @@ val viewModelModule: Module = module {
     viewModel { GamesSeasonViewModel(get(),get()) }
     viewModel { LeaguesToCommandViewModel(get(),get()) }
     viewModel { PlayersViewModel(get(),get()) }
+    viewModel { MyCommandsViewModel(get(),get()) }
 }
 
 val dbModule: Module = module {

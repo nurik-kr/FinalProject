@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.ui.leaguesToCommands
+package kg.nurik.finalproject.ui.bottomNav.myCommands
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +11,12 @@ import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class LeaguesToCommandAdapter(
-    private val viewModel: LeaguesToCommandViewModel,
-    private val listener: (item: Data?) -> Unit
+class MyCommandsAdapter(
+    private val viewModel: MyCommandsViewModel
+//    private val listener: (item: Data?) -> Unit
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
@@ -24,7 +25,7 @@ class LeaguesToCommandAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
-        return ViewHolder(view, listener, viewModel)
+        return ViewHolder(view, viewModel)
     }
 
     fun update(list: List<Commands>?) {
@@ -44,8 +45,8 @@ class LeaguesToCommandAdapter(
 
 class ViewHolder(
     view: View,
-    private val listener: (item: Data?) -> Unit,
-    private val viewModel: LeaguesToCommandViewModel
+//    private val listener: (item: Data?) -> Unit,
+    private val viewModel: MyCommandsViewModel
 ) :
     RecyclerView.ViewHolder(view) {
 
@@ -54,9 +55,9 @@ class ViewHolder(
         itemView.tv_short_code.text = point.shortCode
         Picasso.get().load(point.logo).into(itemView.image_logo)
 
-        itemView.setOnClickListener {
-            listener.invoke(point.country)
-        }
+//        itemView.setOnClickListener {
+//            listener.invoke(point.country)
+//        }
 
         val scaleAnimation = ScaleAnimation(
             0.7f, 1.0f, 0.7f, 1.0f,
