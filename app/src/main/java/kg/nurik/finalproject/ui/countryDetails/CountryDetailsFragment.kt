@@ -2,6 +2,8 @@ package kg.nurik.finalproject.ui.countryDetails
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -10,7 +12,6 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentCountryDetailsBinding
 import kg.nurik.finalproject.utils.viewBinding
-import kotlinx.android.synthetic.main.item_all_games.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
@@ -31,9 +32,10 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
     }
 
     private fun setupViewModel() {
+        binding.progressBarCountry.visibility = ProgressBar.VISIBLE
         vm.dataCountry.observe(viewLifecycleOwner, Observer {
             adapter.update(it.data)
-//            binding.RecyclerviewDetailsCountry.tv_count?.text = it.data.size.toString()
+            binding.progressBarCountry.visibility = ProgressBar.INVISIBLE
         })
     }
 
@@ -45,9 +47,7 @@ class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {
     private fun navigateToLeagues(data: Data) {
         val direction =
             data.countryId?.let {
-                CountryDetailsFragmentDirections.actionCountryDetailsFragment2ToCountryLeaguesFragment(
-                    it
-                )
+                CountryDetailsFragmentDirections.actionCountryDetailsFragment2ToCountryLeaguesFragment(it)
             }
         findNavController().navigate(direction!!)
     }

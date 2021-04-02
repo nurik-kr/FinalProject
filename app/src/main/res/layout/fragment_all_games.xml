@@ -7,6 +7,18 @@
     android:background="@color/bg_parent"
     tools:context=".ui.bottomNav.allGames.AllGamesFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar_all_games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_in"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parentToolbarAllCountry"
         android:layout_width="match_parent"
@@ -51,34 +63,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
-        <ProgressBar
-            android:id="@+id/progressBar_favourite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:indeterminateTintMode="src_in"
-            android:theme="@style/CircularProgress"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@id/Recyclerview_favourite"
-            app:layout_constraintEnd_toEndOf="@id/Recyclerview_favourite"
-            app:layout_constraintStart_toStartOf="@id/Recyclerview_favourite"
-            app:layout_constraintTop_toTopOf="@+id/Recyclerview_favourite" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recyclerview_favourite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            tools:listitem="@layout/item_all_games"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_favourite" />
+            app:layout_constraintTop_toBottomOf="@id/tv_favourite"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_all_games_main_fragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_other"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_favourite_games">
 
@@ -101,25 +105,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recyclerview_others"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="4dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_others"
-            tools:listitem="@layout/item_all_games" />
-
-        <ProgressBar
-            android:id="@+id/progressBar_prochie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminateTintMode="src_in"
-            android:theme="@style/CircularProgress"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@id/Recyclerview_others"
-            app:layout_constraintEnd_toEndOf="@id/Recyclerview_others"
-            app:layout_constraintStart_toStartOf="@id/Recyclerview_others"
-            app:layout_constraintTop_toTopOf="@+id/Recyclerview_others" />
+            tools:listitem="@layout/item_all_games_main_fragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

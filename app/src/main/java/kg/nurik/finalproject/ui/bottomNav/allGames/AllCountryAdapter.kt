@@ -15,7 +15,7 @@ class AllCountryAdapter(private val listener: (item: Data) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_all_games, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_all_games_main_fragment, parent, false)
         return ViewHolder(view, listener)
     }
 
@@ -39,7 +39,6 @@ class ViewHolder(view: View, private val listener: (item: Data) -> Unit) :
 
     fun bind(point: Data?) {
         itemView.tv_name.text = point?.name
-//        itemView.tv_count.text =
 
         itemView.setOnClickListener {
             point?.let { it1 -> listener.invoke(it1) }

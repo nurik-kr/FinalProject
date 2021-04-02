@@ -18,8 +18,8 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="options">Вид спорта</string>
     <string name="my_score">My Score</string>
-    <string name="favourite_turnir">Избранные Страны</string>
-    <string name="others">Прочие Страны [А-Я]</string>
+    <string name="favourite_turnir">Избранные Континенты</string>
+    <string name="others">Прочие Континенты [А-Я]</string>
     <string name="xokei">Хоккей</string>
     <string name="basketball">Баскетбол</string>
     <string name="tennis">Теннис</string>

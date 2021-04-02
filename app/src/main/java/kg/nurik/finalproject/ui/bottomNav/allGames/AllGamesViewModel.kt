@@ -27,7 +27,7 @@ class AllGamesViewModel(
             runCatching {
                 repository.loadData()
             }.onFailure {
-                Log.d("Error", it.localizedMessage)
+                Log.d("Error", it.localizedMessage?: "no error message")
             }
         }
     }
@@ -36,13 +36,14 @@ class AllGamesViewModel(
         return db.getPagingCasheDao().getAllGames()
     }
 
-
     fun getFavouriteFiveContinent(data: List<Data>) {
-        val list = ArrayList<Data>()
-        for (i in 0..5) {
-            list.add(data.random())
+        if(data.isNotEmpty()){
+            val list = ArrayList<Data>()
+            for (i in 0..4) {
+                list.add(data.random())
+            }
+            this.data.postValue(list)
         }
-        this.data.postValue(list)
     }
 
 }
