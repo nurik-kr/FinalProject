@@ -2,6 +2,8 @@ package kg.nurik.finalproject.ui.countryLeagues
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -32,16 +34,16 @@ class CountryLeaguesFragment : Fragment(R.layout.fragment_country_leagues) {
     }
 
     private fun setupViewModel() {
+        binding.progressBarLeagues.visibility = ProgressBar.VISIBLE
         vm.dataLeagues.observe(viewLifecycleOwner, Observer {
             adapter.update(it.data)
+            binding.progressBarLeagues.visibility = ProgressBar.INVISIBLE
         })
     }
 
     private fun setupViews() {
         val categoryId = args.leagues
-        categoryId.let {
-            vm.loadLeagues(it)
-        }
+        categoryId.let { vm.loadLeagues(it) }
     }
 
     private fun setupListener() {
@@ -53,9 +55,7 @@ class CountryLeaguesFragment : Fragment(R.layout.fragment_country_leagues) {
     private fun navigateLeaguesToCommands(data: Leagues?) {
         val direction =
             data?.countryId?.let {
-                CountryLeaguesFragmentDirections.actionCountryLeaguesFragmentToLeaguesToCommandsFragment(
-                    it
-                )
+                CountryLeaguesFragmentDirections.actionCountryLeaguesFragmentToLeaguesToCommandsFragment(it)
             }
         direction?.let { findNavController().navigate(it) }
     }

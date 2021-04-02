@@ -10,7 +10,7 @@
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/source_sans_pro_semi_bold_italic"
         android:padding="2dp"
@@ -24,9 +24,9 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginStart="@dimen/dp12"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="@dimen/dp12"
+        android:layout_marginEnd="8dp"
         android:background="#CFCFCF"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 

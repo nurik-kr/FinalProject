@@ -36,29 +36,27 @@
         android:indeterminateTintMode="src_in"
         android:theme="@style/CircularProgress"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@id/Recyclerview_players"
-        app:layout_constraintEnd_toEndOf="@id/Recyclerview_players"
-        app:layout_constraintStart_toStartOf="@id/Recyclerview_players"
-        app:layout_constraintTop_toTopOf="@id/Recyclerview_players" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Recyclerview_players"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/parentToolbarPlayers"
-        tools:itemCount="10"
         tools:listitem="@layout/item_players" />
 
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="24dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_arrow_back_button"

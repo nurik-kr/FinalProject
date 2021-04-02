@@ -1,5 +1,6 @@
 package kg.nurik.finalproject.data.remote
 
+import kg.nurik.finalproject.BuildConfig.baseUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitBuilder {
     fun buildRetrofit(): Service {
         return Retrofit.Builder()
-            .baseUrl(" https://app.sportdataapi.com/")
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClient())
             .build()

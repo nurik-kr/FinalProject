@@ -3,9 +3,9 @@ package kg.nurik.finalproject.ui.gamesToSeason
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.databinding.FragmentGamesSeasonBinding
@@ -32,6 +32,4 @@ class GamesSeasonFragment(private val listener: (data: DataSeason) -> Unit) :
             binding.progressBarTournaments.visibility = ProgressBar.INVISIBLE
         })
     }
-
-
 }

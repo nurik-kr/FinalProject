@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_home_team"
         android:layout_width="100dp"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="@dimen/dp20"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="90dp"
             android:layout_height="90dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_home_team"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -43,31 +42,30 @@
                 app:layout_constraintTop_toTopOf="@id/parent_image_home" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/tv_home_team"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="8dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:gravity="center"
-            android:maxLines="1"
-            tools:text="Arsenal"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_home_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_away_team"
+        app:layout_constraintStart_toStartOf="@id/container_home_team"
+        app:layout_constraintTop_toBottomOf="@id/container_home_team"
+        tools:text="Arsenal" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_away_team"
         android:layout_width="100dp"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp20"
         android:layout_marginEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +74,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="90dp"
             android:layout_height="90dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_away_team"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -102,26 +99,25 @@
                 app:layout_constraintTop_toTopOf="@id/parent_image_away" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/tv_away_team"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="8dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:gravity="center"
-            android:maxLines="1"
-            tools:text="Aston Villa Aston Villa"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_away_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/container_away_team"
+        app:layout_constraintStart_toEndOf="@id/tv_home_team"
+        app:layout_constraintTop_toBottomOf="@id/container_away_team"
+        tools:text="Aston Villa Aston Villa" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"
@@ -136,13 +132,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            tools:text="2"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/chortochka"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2" />
 
         <TextView
             android:id="@+id/chortochka"
@@ -160,13 +156,13 @@
             android:id="@+id/tv_chet_away_team"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="3"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/chortochka"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -177,21 +173,22 @@
         android:layout_marginTop="20dp"
         android:paddingBottom="8dp"
         app:layout_constraintEnd_toEndOf="@id/container_away_team"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/container_home_team"
-        app:layout_constraintTop_toBottomOf="@id/container_home_team">
+        app:layout_constraintTop_toBottomOf="@id/tv_home_team">
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_shooting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="8"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="8" />
 
         <TextView
             android:id="@+id/tv_shooting"
@@ -211,25 +208,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="4"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4" />
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_attacks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_attacks" />
+            app:layout_constraintTop_toTopOf="@id/id_attacks"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_attacks"
@@ -248,25 +245,25 @@
             android:id="@+id/tv_away_attacks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_attacks" />
+            app:layout_constraintTop_toTopOf="@id/id_attacks"
+            tools:text="1" />
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_possesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_possesion" />
+            app:layout_constraintTop_toTopOf="@id/id_possesion"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_possesion"
@@ -285,13 +282,13 @@
             android:id="@+id/tv_away_possesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_possesion" />
+            app:layout_constraintTop_toTopOf="@id/id_possesion"
+            tools:text="1" />
 
         <ImageView
             android:layout_width="12dp"
@@ -306,13 +303,13 @@
             android:id="@+id/tv_home_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_cards" />
+            app:layout_constraintTop_toTopOf="@id/id_cards"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_cards"
@@ -331,25 +328,25 @@
             android:id="@+id/tv_away_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_cards" />
+            app:layout_constraintTop_toTopOf="@id/id_cards"
+            tools:text="1" />
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_corner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_width="16dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_corners" />
+            app:layout_constraintTop_toTopOf="@id/id_corners"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_corners"
@@ -368,25 +365,25 @@
             android:id="@+id/tv_away_corner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_corners" />
+            app:layout_constraintTop_toTopOf="@id/id_corners"
+            tools:text="1" />
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_fouls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_fouls" />
+            app:layout_constraintTop_toTopOf="@id/id_fouls"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_fouls"
@@ -405,25 +402,25 @@
             android:id="@+id/tv_away_fouls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_fouls" />
+            app:layout_constraintTop_toTopOf="@id/id_fouls"
+            tools:text="1" />
 
         <kg.nurik.finalproject.view.RandomTextView
             android:id="@+id/tv_home_offsides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="5"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_offsides" />
+            app:layout_constraintTop_toTopOf="@id/id_offsides"
+            tools:text="5" />
 
         <TextView
             android:id="@+id/id_offsides"
@@ -442,21 +439,21 @@
             android:id="@+id/tv_away_offsides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="1"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/id_offsides" />
+            app:layout_constraintTop_toTopOf="@id/id_offsides"
+            tools:text="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
         android:layout_marginTop="30dp"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="@id/container_stats"
         app:layout_constraintStart_toStartOf="@id/container_stats"
         app:layout_constraintTop_toBottomOf="@id/container_stats">
@@ -465,11 +462,11 @@
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/match_information"
             android:layout_marginTop="4dp"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:text="@string/match_information"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:fontFamily="@font/source_sans_pro_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -478,7 +475,7 @@
             android:id="@+id/tv_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="@string/city_n"
@@ -491,19 +488,19 @@
             android:id="@+id/tv_city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="@string/city_name"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_city" />
+            app:layout_constraintTop_toTopOf="@id/tv_city"
+            tools:text="@string/city_name" />
 
         <TextView
             android:id="@+id/tv_arena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="@string/stadion"
@@ -516,19 +513,19 @@
             android:id="@+id/tv_venue_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="@string/allianz_arena"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_arena" />
+            app:layout_constraintTop_toTopOf="@id/tv_arena"
+            tools:text="@string/allianz_arena" />
 
         <TextView
             android:id="@+id/tv_capacity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="@string/capacity"
@@ -541,13 +538,13 @@
             android:id="@+id/tv_capacity_chet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="18dp"
             android:fontFamily="@font/source_sans_pro_bold"
-            tools:text="@string/capasite"
             android:textColor="#C4C4C4"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_capacity" />
+            app:layout_constraintTop_toTopOf="@id/tv_capacity"
+            tools:text="@string/capasite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

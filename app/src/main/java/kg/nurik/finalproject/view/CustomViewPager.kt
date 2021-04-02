@@ -1,4 +1,4 @@
-package kg.nurik.finalproject.ui.bottomNav.viewPager
+package kg.nurik.finalproject.view
 
 import android.content.Context
 import android.util.AttributeSet

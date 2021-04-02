@@ -16,6 +16,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "baseUrl", "\"${baseUrl}\""
+        buildConfigField "String", "apiKey", "\"${apiKey}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

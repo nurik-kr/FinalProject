@@ -13,8 +13,10 @@
         <action
             android:id="@+id/action_navigation_all_games_to_countryDetailsFragment2"
             app:destination="@id/countryDetailsFragment2"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -28,8 +30,10 @@
         <action
             android:id="@+id/action_countryDetailsFragment2_to_countryLeaguesFragment"
             app:destination="@id/countryLeaguesFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/countryLeaguesFragment"
@@ -42,8 +46,10 @@
         <action
             android:id="@+id/action_countryLeaguesFragment_to_leaguesToCommandsFragment"
             app:destination="@id/leaguesToCommandsFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left" />
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/leaguesToCommandsFragment"
@@ -55,7 +61,11 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_leaguesToCommandsFragment_to_playersFragment"
-            app:destination="@id/playersFragment" />
+            app:destination="@id/playersFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/playersFragment"

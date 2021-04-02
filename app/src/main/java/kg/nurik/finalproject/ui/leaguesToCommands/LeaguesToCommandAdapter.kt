@@ -12,6 +12,7 @@ import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.Commands
 import kotlinx.android.synthetic.main.item_news.view.*
+import kotlinx.android.synthetic.main.item_players.view.*
 
 class LeaguesToCommandAdapter(
     private val viewModel: LeaguesToCommandViewModel,
@@ -52,8 +53,14 @@ class ViewHolder(
     fun bind(point: Commands) {
         itemView.tv_commands.text = point.name
         itemView.tv_short_code.text = point.shortCode
-        Picasso.get().load(point.logo).into(itemView.image_logo)
 
+        if (point.logo.isNullOrEmpty()) {
+            Picasso.get()
+                .load(point.logo)
+                .placeholder(R.drawable.placeholder_command)
+                .error(R.drawable.placeholder_command)
+                .into(itemView.image_logo)
+        }
         itemView.setOnClickListener {
             listener.invoke(point.country)
         }

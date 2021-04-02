@@ -7,64 +7,58 @@
     android:padding="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_corner_radius"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingBottom="8dp"
+        android:paddingBottom="@dimen/dp10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/image_ic_player"
-            android:layout_width="@dimen/dp55"
-            android:layout_height="@dimen/dp55"
-            android:layout_marginStart="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/ic_item_home_team"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="4dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/placeholder_players"
+            app:layout_constraintBottom_toTopOf="@id/image_ic_player"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_player"
-            android:layout_width="@dimen/dp30"
-            android:src="@drawable/logo_teams"
-            android:layout_height="@dimen/dp30"
-            app:layout_constraintBottom_toBottomOf="@id/image_ic_player"
-            app:layout_constraintEnd_toEndOf="@id/image_ic_player"
-            app:layout_constraintStart_toStartOf="@id/image_ic_player"
-            app:layout_constraintTop_toTopOf="@id/image_ic_player" />
-
         <TextView
-            android:id="@+id/tv_firstName"
-            android:layout_width="0dp"
+            android:id="@+id/tv_name_player"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/source_sans_pro_semi_bold_italic"
-            android:maxLines="1"
-            android:text="@string/firsname"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp16"
-            app:layout_constraintStart_toEndOf="@id/image_ic_player"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:ellipsize="end"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="Киллиан Мбаппе"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_ic_player" />
 
         <TextView
-            android:id="@+id/tv_lastName"
-            android:layout_width="0dp"
+            android:id="@+id/tv_commands_player"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/source_sans_pro_light"
-            android:maxLines="1"
-            android:text="@string/lastName"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp12"
-            app:layout_constraintStart_toEndOf="@id/image_ic_player"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:gravity="start"
+            android:text="Киллиан Мбаппе"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_player" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -70,7 +70,7 @@ interface PagingCasheDao {
     @Query("SELECT ALL * FROM Commands WHERE isChecked")
     fun getFavorite(): LiveData<List<Commands>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCommands(data: List<Commands>)
 
     @Query("SELECT * FROM commands")

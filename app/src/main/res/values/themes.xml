@@ -27,7 +27,7 @@
     </style>
 
     <style name="MyApp.PopupMenu" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
-        <item name="colorSurface">#14141C</item>
+        <item name="colorSurface">#31313C</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

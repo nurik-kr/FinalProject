@@ -13,7 +13,7 @@ import retrofit2.http.Query
 
 interface Service {
 
-    @GET(" api/v1/soccer/countries")
+    @GET("api/v1/soccer/countries")
     suspend fun loadData(
         @Query("apikey") apikey: String
     ): Response<BaseList<Data>>
@@ -47,13 +47,6 @@ interface Service {
         @Query("apikey") apikey: String,
         @Query("country_id") countryId: Int?
     ): Response<BaseList<Players>>
-
-//    https://app.sportdataapi.com/api/v1/soccer/players?apikey=91edefc0-74f2-11eb-b8af-b7d03964d7a1&country_id=25
-
-    //  https://app.sportdataapi.com/api/v1/soccer/matches?apikey=91edefc0-74f2-11eb-b8af-b7d03964d7a1&
-// season_id=496&date_from=2020-09-19
-
-//    https://app.sportdataapi.com/api/v1/soccer/teams?apikey=91edefc0-74f2-11eb-b8af-b7d03964d7a1&country_id=48
 
 }
 

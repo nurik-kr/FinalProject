@@ -1,9 +1,9 @@
 package kg.nurik.finalproject.ui.leaguesToCommands
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -34,18 +34,16 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     }
 
     private fun setupViewModel() {
-//        binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
+        binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
         vm.getAllCommands().observe(viewLifecycleOwner, Observer {
-            binding.progressBarLeaguesToCommands.visibility  = view?.visibility!!
             adapter.update(it)
-//            binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
+            binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
         })
     }
 
     private fun setupViews() {
         val countryId = args.leaguesToCommands
         countryId.let { vm.loadCommands(it) }
-        Log.d("Error", "message")
     }
 
     private fun setupListener() {
@@ -57,9 +55,7 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     private fun navigateCommandsToPlayers(data: Data?) {
         val direction =
             data?.let {
-                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(
-                    it
-                )
+                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(it)
             }
         direction?.let { findNavController().navigate(it) }
     }

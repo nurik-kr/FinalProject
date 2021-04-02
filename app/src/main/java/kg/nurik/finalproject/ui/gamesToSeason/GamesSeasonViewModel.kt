@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kg.nurik.finalproject.BuildConfig.apiKey
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
-import kg.nurik.finalproject.data.model.season.BaseSeason
 import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +24,7 @@ class GamesSeasonViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
                 repository.loadSeasons(
-                    apiKey = "91edefc0-74f2-11eb-b8af-b7d03964d7a1",
+                    apiKey,
                     season_id = seasonId
                 )
             }.onFailure {

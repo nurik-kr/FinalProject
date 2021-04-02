@@ -37,15 +37,15 @@ class PlayersAdapter : RecyclerView.Adapter<ViewHolder>() {
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(point: Players?) {
-        itemView.tv_firstName.text = point?.firstname
-        itemView.tv_lastName.text = point?.lastname
+        itemView.tv_name_player.text = point?.firstname
+        itemView.tv_commands_player.text = point?.lastname
 
         if (!point?.img.isNullOrEmpty()) {
             Picasso.get()
                 .load(point?.img)
-                .placeholder(R.drawable.logo_teams)
-                .error(R.drawable.logo_teams)
-                .into(itemView.image_player)
+                .placeholder(R.drawable.placeholder_players)
+                .error(R.drawable.placeholder_players)
+                .into(itemView.image_ic_player)
         }
     }
 }

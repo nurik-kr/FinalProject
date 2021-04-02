@@ -1,6 +1,7 @@
 package kg.nurik.finalproject.data.repository
 
 import android.util.Log
+import kg.nurik.finalproject.BuildConfig
 import kg.nurik.finalproject.data.interactor.Interactor
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
 
@@ -22,7 +23,7 @@ class RepositoryImpl(
 
     override suspend fun loadSeasons(apiKey: String, season_id: Int) {
 
-        val result = network.loadSeasons("91edefc0-74f2-11eb-b8af-b7d03964d7a1", 496)
+        val result = network.loadSeasons(apiKey, 496)
         try {
             result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertSeason(it) }
         } catch (e: Exception) {
@@ -32,7 +33,7 @@ class RepositoryImpl(
 
     override suspend fun loadPlayers(apiKey: String, country_id: Int) {
         val result =
-            network.loadPlayers("91edefc0-74f2-11eb-b8af-b7d03964d7a1", country_id = country_id)
+            network.loadPlayers(apiKey, country_id)
         try {
             result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertPlayers(it) }
         } catch (e: Exception) {
@@ -43,7 +44,7 @@ class RepositoryImpl(
 
     override suspend fun loadCommands(apiKey: String, country_id: Int) {
         val result =
-            network.loadCommands("91edefc0-74f2-11eb-b8af-b7d03964d7a1", country_id = country_id)
+            network.loadCommands(apiKey, country_id)
         try {
             result.body()?.data?.let { db.getPagingCasheDao().insertCommands(it) }
         } catch (e: Exception) {
