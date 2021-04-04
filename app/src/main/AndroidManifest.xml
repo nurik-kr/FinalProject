@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.onBoard.OneFragmentActivity">
+        <activity android:name=".ui.onBoard.OneFragmentActivity"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
