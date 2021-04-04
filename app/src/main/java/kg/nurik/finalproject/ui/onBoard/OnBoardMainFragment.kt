@@ -65,7 +65,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.first_title),
-                    R.drawable.ic_launcher_foreground
+                    R.drawable.ic_launcher
                 )
             )
         )
@@ -73,7 +73,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.second_title),
-                    R.drawable.ic_launcher_foreground
+                    R.drawable.ic_launcher
                 )
             )
         )
