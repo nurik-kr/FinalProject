@@ -1,31 +1,36 @@
-package kg.nurik.finalproject.ui.bottomNav.myCommands
+package kg.nurik.finalproject.ui.topScorers
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kg.nurik.finalproject.BuildConfig.apiKey
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
-import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.data.model.topScores.TopScores
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MyCommandsViewModel(
+class TopScoresViewModel(
     private val repository: Repository,
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {
 
-    fun update(item: Commands) {
+    fun loadTopScores(countryId: Int = 496) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                db.getPagingCasheDao().update(item)
+                repository.loadTopScores(
+                    apiKey,
+                    country_id = countryId
+                )
             }.onFailure {
-                Log.d("commands", it.localizedMessage)
+                Log.d("ssasdas", it.localizedMessage)
             }
         }
     }
 
-    fun getAllFavouriteCommands(): LiveData<List<Commands>> {
-        return db.getPagingCasheDao().getFavorite()
+    fun getTopScores(): LiveData<List<TopScores>> {
+        return db.getPagingCasheDao().getAllTopScores()
     }
+
 }

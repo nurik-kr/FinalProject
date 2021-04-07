@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.model.players.Players
-import kg.nurik.finalproject.data.model.season.BaseSeason
 import kg.nurik.finalproject.data.model.season.DataSeason
+import kg.nurik.finalproject.data.model.topScores.TopScores
 
 @Dao
 interface PagingCasheDao {
@@ -33,6 +34,12 @@ interface PagingCasheDao {
     suspend fun deleteAndInsertCommands(data: List<Commands>) {
         deleteAllCommands()
         insertCommands(data)
+    }
+
+    @Transaction
+    suspend fun deleteAndInsertTopScores(data: List<TopScores>) {
+        deleteAllTopScores()
+        insertTopScores(data)
     }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -67,6 +74,10 @@ interface PagingCasheDao {
     @Update
     suspend fun update(item: Commands)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    @Query("SELECT ALL * FROM Commands WHERE isChecked")
+    fun insertFavouriteCommands(data: Commands)
+
     @Query("SELECT ALL * FROM Commands WHERE isChecked")
     fun getFavorite(): LiveData<List<Commands>>
 
@@ -78,4 +89,14 @@ interface PagingCasheDao {
 
     @Query("DELETE FROM commands")
     suspend fun deleteAllCommands()
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertTopScores(data: List<TopScores>)
+
+    @Query("SELECT * FROM topscores")
+    fun getAllTopScores(): LiveData<List<TopScores>>
+
+    @Query("DELETE FROM topscores")
+    suspend fun deleteAllTopScores()
 }

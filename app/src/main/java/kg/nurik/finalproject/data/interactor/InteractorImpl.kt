@@ -8,6 +8,7 @@ import kg.nurik.finalproject.data.model.countryDet.CountryEntity
 import kg.nurik.finalproject.data.model.players.Players
 import kg.nurik.finalproject.data.model.season.BaseSeason
 import kg.nurik.finalproject.data.model.season.DataSeason
+import kg.nurik.finalproject.data.model.topScores.TopScores
 import kg.nurik.finalproject.data.remote.Service
 import retrofit2.Response
 
@@ -17,6 +18,7 @@ interface Interactor {
     suspend fun loadLeagues(apiKey: String, country_id: Int): CountryEntity
     suspend fun loadCommands(apiKey: String, country_id: Int): Response<BaseList<Commands>>
     suspend fun loadSeasons(apiKey: String, season_id: Int): Response<BaseSeason<DataSeason>>
+    suspend fun loadTopScores(apiKey: String, season_id: Int): Response<BaseSeason<TopScores>>
     suspend fun loadPlayers(apiKey: String, country_id: Int?): Response<BaseList<Players>>
 }
 
@@ -51,7 +53,17 @@ class InteractorImpl(private val service: Service) : Interactor {
         )
     }
 
-    override suspend fun loadPlayers(apiKey: String, country_id: Int?): Response<BaseList<Players>> {
+    override suspend fun loadTopScores(
+        apiKey: String,
+        season_id: Int
+    ): Response<BaseSeason<TopScores>> {
+        return service.loadTopScores(apikey = apiKey, seasonId = season_id)
+    }
+
+    override suspend fun loadPlayers(
+        apiKey: String,
+        country_id: Int?
+    ): Response<BaseList<Players>> {
         return service.loadPlayers(apikey = apiKey, countryId = country_id)
     }
 }

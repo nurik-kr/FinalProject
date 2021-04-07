@@ -7,6 +7,7 @@ import kg.nurik.finalproject.data.model.countryDet.CountryEntity
 import kg.nurik.finalproject.data.model.players.Players
 import kg.nurik.finalproject.data.model.season.BaseSeason
 import kg.nurik.finalproject.data.model.season.DataSeason
+import kg.nurik.finalproject.data.model.topScores.TopScores
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -41,6 +42,12 @@ interface Service {
         @Query("apikey") apikey: String,
         @Query("season_id") seasonId: Int
     ): Response<BaseSeason<DataSeason>>
+
+    @GET("api/v1/soccer/topscorers")
+    suspend fun loadTopScores(
+        @Query("apikey") apikey: String,
+        @Query("season_id") seasonId: Int
+    ): Response<BaseSeason<TopScores>>
 
     @GET("api/v1/soccer/players")
     suspend fun loadPlayers(

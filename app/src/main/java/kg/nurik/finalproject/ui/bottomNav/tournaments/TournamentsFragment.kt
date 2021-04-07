@@ -11,17 +11,46 @@ import kg.nurik.finalproject.data.model.ViewPagerModel
 import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.databinding.FragmentTournamentsBinding
 import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonFragment
+import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonViewModel
 import kg.nurik.finalproject.ui.topScorers.TopScorersFragment
+import kg.nurik.finalproject.ui.topScorers.TopScoresViewModel
 import kg.nurik.finalproject.utils.viewBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
 
     private val binding by viewBinding(FragmentTournamentsBinding::bind)
     private var adapter: PagerAdapter? = null
+    private val vmSeason by viewModel<GamesSeasonViewModel>()
+    private val vmTopScores by viewModel<TopScoresViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        clickMenu()
         setupViewPager()
+    }
+
+    private fun clickMenu() {
+        binding.toolbarCustom.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.one_season -> {
+                    vmSeason.loadSeason(496)
+                    vmTopScores.loadTopScores(496)
+                    true
+                }
+                R.id.two_season -> {
+                    vmSeason.loadSeason(503)
+                    vmTopScores.loadTopScores(503)
+                    true
+                }
+                R.id.three_season -> {
+                    vmSeason.loadSeason(509)
+                    vmTopScores.loadTopScores(509)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun setupViewPager() {

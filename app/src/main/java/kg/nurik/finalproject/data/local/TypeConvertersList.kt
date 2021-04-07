@@ -5,8 +5,53 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.season.*
+import kg.nurik.finalproject.data.model.topScores.Goals
+import kg.nurik.finalproject.data.model.topScores.Player
+import kg.nurik.finalproject.data.model.topScores.Team
 
 object TypeConvertersList {
+
+    @JvmStatic
+    @TypeConverter
+    fun goalsListToString(model: Goals?): String {
+        return Gson().toJson(model)
+    }
+
+    @JvmStatic
+    @TypeConverter
+    fun textStringToGoalsList(text: String?): Goals? {
+        if (text == null) return null
+        val typeToken = object : TypeToken<Goals>() {}.type
+        return Gson().fromJson(text, typeToken)
+    }
+
+    @JvmStatic
+    @TypeConverter
+    fun playerListToString(model: Player?): String {
+        return Gson().toJson(model)
+    }
+
+    @JvmStatic
+    @TypeConverter
+    fun textStringToPlayerList(text: String?): Player? {
+        if (text == null) return null
+        val typeToken = object : TypeToken<Player>() {}.type
+        return Gson().fromJson(text, typeToken)
+    }
+
+    @JvmStatic
+    @TypeConverter
+    fun teamListToString(model: Team?): String {
+        return Gson().toJson(model)
+    }
+
+    @JvmStatic
+    @TypeConverter
+    fun textStringToTeamList(text: String?): Team? {
+        if (text == null) return null
+        val typeToken = object : TypeToken<Team>() {}.type
+        return Gson().fromJson(text, typeToken)
+    }
 
     @JvmStatic
     @TypeConverter
