@@ -14,6 +14,7 @@ import kg.nurik.finalproject.ui.commandToPlayers.PlayersViewModel
 import kg.nurik.finalproject.ui.countryDetails.CountryDetailsViewModel
 import kg.nurik.finalproject.ui.countryLeagues.CountryLeaguesViewModel
 import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonViewModel
+import kg.nurik.finalproject.ui.topScorers.TopScoresViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -27,6 +28,7 @@ val viewModelModule: Module = module {
     viewModel { LeaguesToCommandViewModel(get(),get()) }
     viewModel { PlayersViewModel(get(),get()) }
     viewModel { MyCommandsViewModel(get(),get()) }
+    viewModel { TopScoresViewModel(get(),get()) }
 }
 
 val dbModule: Module = module {

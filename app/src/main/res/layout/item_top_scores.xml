@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/bg_parent"
@@ -10,38 +11,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_corner_radius"
-        android:paddingBottom="8dp"
+        android:paddingBottom="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_firstName"
+            android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/source_sans_pro_semi_bold_italic"
-            android:text="1"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
 
         <TextView
             android:id="@+id/tv_lastName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
             android:fontFamily="@font/source_sans_pro_light"
             android:maxLines="1"
-            android:text="@string/lastName"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp16"
-            app:layout_constraintStart_toEndOf="@id/tv_firstName"
-            app:layout_constraintTop_toTopOf="@id/tv_firstName" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_count_home"
+            app:layout_constraintStart_toEndOf="@id/tv_count"
+            app:layout_constraintTop_toTopOf="@id/tv_count"
+            tools:text="Mohamed Salah Hamed Mahrous Ghaly" />
+
+        <TextView
+            android:id="@+id/tv_count_overall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="@id/tv_lastName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_lastName"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/tv_count_away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="54dp"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="@id/tv_lastName"
+            app:layout_constraintEnd_toStartOf="@id/tv_count_overall"
+            app:layout_constraintTop_toTopOf="@id/tv_lastName"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/tv_count_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tv_lastName"
+            android:layout_marginEnd="54dp"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="@id/tv_lastName"
+            app:layout_constraintEnd_toStartOf="@id/tv_count_away"
+            app:layout_constraintTop_toTopOf="@id/tv_lastName"
+            tools:text="50" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

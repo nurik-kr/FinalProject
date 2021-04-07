@@ -10,6 +10,7 @@ interface Repository {
     suspend fun loadSeasons(apiKey: String, season_id: Int)
     suspend fun loadPlayers(apiKey: String, country_id: Int)
     suspend fun loadCommands(apiKey: String, country_id: Int)
+    suspend fun loadTopScores(apiKey: String, country_id: Int)
 }
 
 class RepositoryImpl(
@@ -23,7 +24,7 @@ class RepositoryImpl(
 
     override suspend fun loadSeasons(apiKey: String, season_id: Int) {
 
-        val result = network.loadSeasons(apiKey, 496)
+        val result = network.loadSeasons(apiKey, season_id)
         try {
             result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertSeason(it) }
         } catch (e: Exception) {
@@ -46,7 +47,16 @@ class RepositoryImpl(
         val result =
             network.loadCommands(apiKey, country_id)
         try {
-            result.body()?.data?.let { db.getPagingCasheDao().insertCommands(it) }
+            result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertCommands(it) }
+        } catch (e: Exception) {
+            Log.d("commands", e.localizedMessage)
+        }
+    }
+
+    override suspend fun loadTopScores(apiKey: String, country_id: Int) {
+        val result = network.loadTopScores(apiKey, country_id)
+        try {
+            result.body()?.data?.let { db.getPagingCasheDao().deleteAndInsertTopScores(it) }
         } catch (e: Exception) {
             Log.d("commands", e.localizedMessage)
         }

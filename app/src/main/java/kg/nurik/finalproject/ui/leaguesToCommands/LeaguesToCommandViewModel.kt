@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kg.nurik.finalproject.BuildConfig.apiKey
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
 import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,6 +36,16 @@ class LeaguesToCommandViewModel(
                 db.getPagingCasheDao().update(item)
             }.onFailure {
                 Log.d("commands", it.localizedMessage)
+            }
+        }
+    }
+
+    fun insertFavourite(item: Commands) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                db.getPagingCasheDao().insertFavouriteCommands(item)
+            }.onFailure {
+                Log.d("FavouriteCommands", it.localizedMessage)
             }
         }
     }

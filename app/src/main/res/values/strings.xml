@@ -55,4 +55,10 @@
     <string name="players_commands">Игроки этой команды</string>
     <string name="season">Сезон</string>
     <string name="continent">Континенты</string>
+    <string name="player">Player</string>
+    <string name="reshotka">#</string>
+    <string name="overall">Overall</string>
+    <string name="away">Away</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
 </resources>

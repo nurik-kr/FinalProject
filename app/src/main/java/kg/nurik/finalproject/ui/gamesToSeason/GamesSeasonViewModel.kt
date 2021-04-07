@@ -16,11 +16,7 @@ class GamesSeasonViewModel(
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {
 
-    init {
-        loadSeason()
-    }
-
-    private fun loadSeason(seasonId: Int = 496) {
+    fun loadSeason(seasonId: Int = 496) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
                 repository.loadSeasons(

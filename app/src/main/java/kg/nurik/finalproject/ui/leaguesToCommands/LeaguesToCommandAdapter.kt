@@ -11,8 +11,8 @@ import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kotlinx.android.synthetic.main.item_news.view.*
-import kotlinx.android.synthetic.main.item_players.view.*
 
 class LeaguesToCommandAdapter(
     private val viewModel: LeaguesToCommandViewModel,
@@ -79,5 +79,6 @@ class ViewHolder(
             itemView.checkbox.startAnimation(scaleAnimation)
         }
         itemView.checkbox.isChecked = point.isChecked
+//        viewModel.insertFavourite()
     }
 }

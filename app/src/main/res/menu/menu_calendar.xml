@@ -2,19 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menu_calendar"
-        android:enabled="true"
-        app:showAsAction="never"
-        android:title="2021" />
-    <item
-        android:id="@+id/my_games"
-        android:enabled="true"
-        app:showAsAction="never"
-        android:title="2020"/>
-    <item
-        android:id="@+id/my_commands"
-        android:enabled="true"
-        app:showAsAction="never"
-        android:title="2019"/>
+    <group android:checkableBehavior="all">
+
+        <item
+            android:id="@+id/one_season"
+            android:enabled="true"
+            android:title="2021"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/two_season"
+            android:enabled="true"
+            android:title="2020"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/three_season"
+            android:enabled="true"
+            android:title="2019"
+            app:showAsAction="never" />
+    </group>
 </menu>
