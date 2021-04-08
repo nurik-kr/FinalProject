@@ -17,7 +17,6 @@ import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
 
     private val vm by viewModel<AllGamesViewModel>()

@@ -3,7 +3,9 @@ package kg.nurik.finalproject.ui.bottomNav.tournaments
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import kg.nurik.finalproject.R
@@ -15,6 +17,7 @@ import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonViewModel
 import kg.nurik.finalproject.ui.topScorers.TopScorersFragment
 import kg.nurik.finalproject.ui.topScorers.TopScoresViewModel
 import kg.nurik.finalproject.utils.viewBinding
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
@@ -28,6 +31,14 @@ class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
         super.onViewCreated(view, savedInstanceState)
         clickMenu()
         setupViewPager()
+        setupViewModel()
+    }
+
+    private fun setupViewModel() {
+        vmSeason.progress.observe(viewLifecycleOwner, Observer {
+            binding.progressBarViewPager.isVisible = it
+            binding.viewPager.isVisible = !it
+        })
     }
 
     private fun clickMenu() {
@@ -35,16 +46,19 @@ class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
             when (it.itemId) {
                 R.id.one_season -> {
                     vmSeason.loadSeason(496)
+                    it.isChecked = true
                     vmTopScores.loadTopScores(496)
                     true
                 }
                 R.id.two_season -> {
                     vmSeason.loadSeason(503)
+                    it.isChecked = true
                     vmTopScores.loadTopScores(503)
                     true
                 }
                 R.id.three_season -> {
                     vmSeason.loadSeason(509)
+                    it.isChecked = true
                     vmTopScores.loadTopScores(509)
                     true
                 }

@@ -65,7 +65,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.first_title),
-                    R.drawable.ic_launcher
+                        R.drawable.mbappe
                 )
             )
         )
@@ -73,7 +73,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.second_title),
-                    R.drawable.ic_launcher
+                    R.drawable.league_champions
                 )
             )
         )
@@ -81,7 +81,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.third_title),
-                    R.drawable.ic_launcher_background
+                        R.drawable.learn_football
                 )
             )
         )

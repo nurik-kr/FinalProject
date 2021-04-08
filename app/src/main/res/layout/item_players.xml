@@ -7,7 +7,7 @@
     android:padding="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="130dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_corner_radius"
         android:paddingBottom="@dimen/dp10"

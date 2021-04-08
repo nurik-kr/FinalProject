@@ -18,10 +18,10 @@
         android:id="@+id/playersFragment2"
         android:name="kg.nurik.finalproject.ui.commandToPlayers.PlayersFragment"
         android:label="fragment_players"
-        tools:layout="@layout/fragment_players" />
-    <argument
-        android:name="countryId"
-        app:argType="kg.nurik.finalproject.data.model.allGames.Data" />
+        tools:layout="@layout/fragment_players">
+        <argument
+            android:name="countryId"
+            app:argType="kg.nurik.finalproject.data.model.allGames.Data" />
+    </fragment>
 
-
-    </navigation>
+</navigation>

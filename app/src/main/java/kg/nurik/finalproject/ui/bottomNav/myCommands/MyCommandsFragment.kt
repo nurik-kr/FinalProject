@@ -5,11 +5,14 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import kg.nurik.finalproject.R
+import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentLeaguesToCommandsBinding
 import kg.nurik.finalproject.databinding.FragmentMyCommandsBinding
 import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandAdapter
 import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
+import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandsFragmentDirections
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,7 +20,11 @@ class MyCommandsFragment : Fragment(R.layout.fragment_my_commands) {
 
     private val binding by viewBinding(FragmentMyCommandsBinding::bind)
     private val vm by viewModel<MyCommandsViewModel>()
-    private val adapter by lazy { MyCommandsAdapter(vm) }
+    private val adapter by lazy {
+        MyCommandsAdapter(vm) {
+            navigateCommandsToPlayers(it)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,4 +45,11 @@ class MyCommandsFragment : Fragment(R.layout.fragment_my_commands) {
 
     }
 
+    private fun navigateCommandsToPlayers(data: Data?) {
+        val direction =
+            data?.let {
+                MyCommandsFragmentDirections.actionNavigationMyCommandsToPlayersFragment2(it)
+            }
+        direction?.let { findNavController().navigate(it) }
+    }
 }

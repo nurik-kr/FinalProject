@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:checkableBehavior="all">
+    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/one_season"
-            android:enabled="true"
             android:title="2021"
+            android:enabled="true"
             app:showAsAction="never" />
         <item
             android:id="@+id/two_season"
-            android:enabled="true"
             android:title="2020"
+            android:enabled="true"
             app:showAsAction="never" />
         <item
             android:id="@+id/three_season"
-            android:enabled="true"
             android:title="2019"
+            android:enabled="true"
             app:showAsAction="never" />
     </group>
 </menu>
