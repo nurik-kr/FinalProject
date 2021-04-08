@@ -10,25 +10,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
-import kg.nurik.finalproject.data.model.command.Commands
-import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
+import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kotlinx.android.synthetic.main.item_news.view.*
 
 class MyCommandsAdapter(
-    private val viewModel: MyCommandsViewModel
-//    private val listener: (item: Data?) -> Unit
+    private val viewModel: MyCommandsViewModel,
+    private val listener: (item: Data?) -> Unit
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
-    private val list = arrayListOf<Commands>()
+    private val list = arrayListOf<FavouriteCommands>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
-        return ViewHolder(view, viewModel)
+        return ViewHolder(view, viewModel, listener)
     }
 
-    fun update(list: List<Commands>?) {
+    fun update(list: List<FavouriteCommands>?) {
         if (list != null) {
             this.list.clear()
             this.list.addAll(list)
@@ -45,19 +44,19 @@ class MyCommandsAdapter(
 
 class ViewHolder(
     view: View,
-//    private val listener: (item: Data?) -> Unit,
-    private val viewModel: MyCommandsViewModel
+    private val viewModel: MyCommandsViewModel,
+    private val listener: (item: Data?) -> Unit
 ) :
     RecyclerView.ViewHolder(view) {
 
-    fun bind(point: Commands) {
+    fun bind(point: FavouriteCommands) {
         itemView.tv_commands.text = point.name
         itemView.tv_short_code.text = point.shortCode
         Picasso.get().load(point.logo).into(itemView.image_logo)
 
-//        itemView.setOnClickListener {
-//            listener.invoke(point.country)
-//        }
+        itemView.setOnClickListener {
+            listener.invoke(point.country)
+        }
 
         val scaleAnimation = ScaleAnimation(
             0.7f, 1.0f, 0.7f, 1.0f,

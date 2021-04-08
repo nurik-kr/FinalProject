@@ -45,23 +45,23 @@
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="#8A8A8A" />
 
-    <ProgressBar
-        android:id="@+id/progressBar_viewPager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTintMode="src_in"
-        android:theme="@style/CircularProgress"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@id/viewPager"
-        app:layout_constraintEnd_toEndOf="@id/viewPager"
-        app:layout_constraintStart_toStartOf="@id/viewPager"
-        app:layout_constraintTop_toTopOf="@id/viewPager" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tableLayout" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_in"
+        android:theme="@style/CircularProgress"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/viewPager"
+        app:layout_constraintEnd_toEndOf="@id/viewPager"
+        app:layout_constraintStart_toStartOf="@id/viewPager"
+        app:layout_constraintTop_toTopOf="@id/viewPager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

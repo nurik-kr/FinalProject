@@ -5,12 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kg.nurik.finalproject.BuildConfig.apiKey
+import kg.nurik.finalproject.data.local.ModelWrapper
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.sql.Wrapper
 
 class LeaguesToCommandViewModel(
     private val repository: Repository,
@@ -34,16 +36,26 @@ class LeaguesToCommandViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
                 db.getPagingCasheDao().update(item)
+                insertFavourite(item)
             }.onFailure {
                 Log.d("commands", it.localizedMessage)
             }
         }
     }
 
-    fun insertFavourite(item: Commands) {
+//    private fun insertIsChecked(item: Commands) {
+//        if (item.isChecked) {
+//            db.getPagingCasheDao().insertFavouriteCommands(ModelWrapper.commandsToFavouriteCommand(item))
+//        } else {
+//            db.getPagingCasheDao().deleteFavouriteCommands(ModelWrapper.commandsToFavouriteCommand(item))
+//        }
+//    }
+
+    private fun insertFavourite(item: Commands) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                db.getPagingCasheDao().insertFavouriteCommands(item)
+                db.getPagingCasheDao()
+                    .insertFavouriteCommands(ModelWrapper.commandsToFavouriteCommand(item))
             }.onFailure {
                 Log.d("FavouriteCommands", it.localizedMessage)
             }

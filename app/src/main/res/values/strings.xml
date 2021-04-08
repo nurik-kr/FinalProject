@@ -4,9 +4,9 @@
     <string name="back">Назад</string>
     <string name="skip">Пропустить</string>
     <string name="start">Завершить</string>
-    <string name="first_title">Узнавай новости\nиз мира самбо</string>
-    <string name="second_title">Учись у лучших\nспортсменов</string>
-    <string name="third_title">Стань частью\nсообщества</string>
+    <string name="first_title">Узнай\nВсе о спорте вместе с нами.</string>
+    <string name="second_title">Лига чемпионов УЕФА\nОдин из самых престижных\nфутбольных турниров в мире\nи самый престижный трофей\тв европейском футболе,\nв котором играют чемпионы\nнациональной лиги.</string>
+    <string name="third_title">Чемпионат мира по футболу\nЧемпионат мира проводится руководящим органом мирового\nфутбола - ФИФА, и в нем могут принимать участие все \n национальные команды\nвсех континентов.</string>
     <string name="my_games">Мои игры</string>
     <string name="all_games">Все игры</string>
     <string name="my_commands">Мои команды</string>
@@ -45,7 +45,7 @@
     <string name="city_n">City</string>
     <string name="shooting">Shooting</string>
     <string name="attacks">Attacks</string>
-    <string name="possesion">Possesion</string>
+        <string name="possesion">Possesion</string>
     <string name="corners">Corners</string>
     <string name="fouls">Fouls</string>
     <string name="offsides">Offsides</string>

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
 import kg.nurik.finalproject.data.model.command.Commands
+import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,17 +16,17 @@ class MyCommandsViewModel(
     private val db: PagingCasheAppDatabase
 ) : ViewModel() {
 
-    fun update(item: Commands) {
+    fun update(item: FavouriteCommands) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                db.getPagingCasheDao().update(item)
+                db.getPagingCasheDao().updateFavourite(item)
             }.onFailure {
                 Log.d("commands", it.localizedMessage)
             }
         }
     }
 
-    fun getAllFavouriteCommands(): LiveData<List<Commands>> {
-        return db.getPagingCasheDao().getFavorite()
+    fun getAllFavouriteCommands(): LiveData<List<FavouriteCommands>> {
+        return db.getPagingCasheDao().getNewTableFavorite()
     }
 }

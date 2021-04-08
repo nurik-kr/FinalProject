@@ -54,7 +54,7 @@ class ViewHolder(
         itemView.tv_commands.text = point.name
         itemView.tv_short_code.text = point.shortCode
 
-        if (point.logo.isNullOrEmpty()) {
+        if (!point.logo.isNullOrEmpty()) {
             Picasso.get()
                 .load(point.logo)
                 .placeholder(R.drawable.placeholder_command)
@@ -79,6 +79,6 @@ class ViewHolder(
             itemView.checkbox.startAnimation(scaleAnimation)
         }
         itemView.checkbox.isChecked = point.isChecked
-//        viewModel.insertFavourite()
+
     }
 }

@@ -74,12 +74,20 @@ interface PagingCasheDao {
     @Update
     suspend fun update(item: Commands)
 
+    @Update
+    suspend fun updateFavourite(item: FavouriteCommands)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    @Query("SELECT ALL * FROM Commands WHERE isChecked")
-    fun insertFavouriteCommands(data: Commands)
+    fun insertFavouriteCommands(data: FavouriteCommands)
+
+    @Delete
+    fun deleteFavouriteCommands(data: FavouriteCommands)
 
     @Query("SELECT ALL * FROM Commands WHERE isChecked")
     fun getFavorite(): LiveData<List<Commands>>
+
+    @Query("SELECT ALL * FROM FavouriteCommands WHERE isChecked")
+    fun getNewTableFavorite(): LiveData<List<FavouriteCommands>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCommands(data: List<Commands>)
