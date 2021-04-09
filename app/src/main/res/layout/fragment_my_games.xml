@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottomNav.allGames.AllGamesFragment">
+    android:background="@color/bg_parent">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentToolbarMyBookmaker"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="@dimen/dp50"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_black_toolbar"
+            android:gravity="center"
+            android:text="@string/bookmaker"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintBottom_toBottomOf="@id/parentToolbarMyBookmaker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/parentToolbarMyBookmaker" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_bookmaker"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parentToolbarMyBookmaker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
