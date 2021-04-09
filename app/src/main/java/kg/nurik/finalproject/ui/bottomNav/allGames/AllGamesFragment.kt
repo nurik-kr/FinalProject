@@ -16,6 +16,7 @@ import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
 
@@ -36,25 +37,6 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         setupViews()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_search, menu)
-        val actionSearch: MenuItem = menu.findItem(R.id.menu_action_search)
-
-        val searchViewEditText: SearchView = actionSearch.actionView as SearchView
-
-        searchViewEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(requireContext(),query,Toast.LENGTH_SHORT).show()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(requireContext(),newText,Toast.LENGTH_SHORT).show()
-                return false
-            }
-        })
-    }
-
     private fun setupViews() {
         binding.progressBarAllGames.visibility = ProgressBar.VISIBLE
         vm.getAllGames().observe(viewLifecycleOwner, Observer {
@@ -66,6 +48,41 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         vm.data.observe(viewLifecycleOwner, Observer {
             adapterFavourite.update(it)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
+        val actionSearch = menu.findItem(R.id.menu_action_search)
+
+        if (actionSearch != null) {
+            val searchViewEditText = actionSearch.actionView as SearchView
+
+            searchViewEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    Toast.makeText(requireContext(), query, Toast.LENGTH_SHORT).show()
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (newText!!.isNotEmpty()){
+                        val search = newText.toLowerCase(Locale.getDefault())
+                        adapter.list.forEach {
+                            if (it.name?.toLowerCase(Locale.getDefault())?.contains(search)!!){
+                                adapter.list.add(it)
+                                Toast.makeText(requireContext(), newText, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        adapter.notifyDataSetChanged()
+                    }
+                    else {
+                        adapter.list.clear()
+                        adapter.notifyDataSetChanged()
+                        Toast.makeText(requireContext(), newText, Toast.LENGTH_SHORT).show()
+                    }
+                    return true
+                }
+            })
+        }
     }
 
     private fun navigateToDetails(data: Data) {

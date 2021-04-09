@@ -45,5 +45,4 @@ class AllGamesViewModel(
             this.data.postValue(list)
         }
     }
-
 }

@@ -43,14 +43,6 @@ class LeaguesToCommandViewModel(
         }
     }
 
-//    private fun insertIsChecked(item: Commands) {
-//        if (item.isChecked) {
-//            db.getPagingCasheDao().insertFavouriteCommands(ModelWrapper.commandsToFavouriteCommand(item))
-//        } else {
-//            db.getPagingCasheDao().deleteFavouriteCommands(ModelWrapper.commandsToFavouriteCommand(item))
-//        }
-//    }
-
     private fun insertFavourite(item: Commands) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
