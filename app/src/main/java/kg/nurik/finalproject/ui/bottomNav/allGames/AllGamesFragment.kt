@@ -1,12 +1,8 @@
 package kg.nurik.finalproject.ui.bottomNav.allGames
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -16,7 +12,6 @@ import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentAllGamesBinding
 import kg.nurik.finalproject.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
 
@@ -35,6 +30,14 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
         binding.RecyclerviewOthers.adapter = adapter
         binding.RecyclerviewFavourite.adapter = adapterFavourite
         setupViews()
+        clickListenersMenu()
+    }
+
+    private fun clickListenersMenu() {
+        binding.menuSearch.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_navigation_all_games_to_searchFragment)
+        }
     }
 
     private fun setupViews() {
@@ -44,17 +47,11 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
             binding.progressBarAllGames.visibility = ProgressBar.INVISIBLE
             vm.getFavouriteFiveContinent(it)
         })
-
         vm.data.observe(viewLifecycleOwner, Observer {
             adapterFavourite.update(it)
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_search, menu)
-        val actionSearch = menu.findItem(R.id.menu_action_search)
-        actionSearch.actionView.findNavController()
-    }
 
     private fun navigateToDetails(data: Data) {
         val direction =
