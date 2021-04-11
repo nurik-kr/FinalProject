@@ -10,8 +10,8 @@
         android:id="@+id/tvSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
         android:fontFamily="@font/source_sans_pro_semi_bold_italic"
         android:gravity="center"
         android:text="@string/skip"
@@ -40,32 +40,59 @@
         app:tabIndicatorHeight="0dp"
         app:tabRippleColor="@android:color/transparent" />
 
-    <TextView
-        android:id="@+id/tvBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/source_sans_pro_semi_bold_italic"
-        android:gravity="center"
-        android:text="@string/back"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp16"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btBack"
+        android:layout_width="@dimen/dp75"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginStart="20dp"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@id/onBoardTabLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/onBoardTabLayout" />
+        app:layout_constraintTop_toTopOf="@id/onBoardTabLayout">
 
-    <TextView
-        android:id="@+id/tvNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_semi_bold_italic"
+            android:gravity="center"
+            android:text="@string/back"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btNext"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/dp40"
         android:layout_marginEnd="16dp"
-        android:fontFamily="@font/source_sans_pro_semi_bold_italic"
-        android:gravity="center"
-        android:text="@string/proceed"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp16"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@id/onBoardTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/onBoardTabLayout" />
+        app:layout_constraintTop_toTopOf="@id/onBoardTabLayout">
+
+        <TextView
+            android:id="@+id/tvNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_semi_bold_italic"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/proceed"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

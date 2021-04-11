@@ -10,7 +10,7 @@ import kg.nurik.finalproject.data.model.season.DataSeason
 import kg.nurik.finalproject.data.model.topScores.TopScores
 
 @Dao
-interface PagingCasheDao {
+interface CasheDao {
 
     @Transaction
     suspend fun deleteAndInsertAllGames(data: List<Data>) {
@@ -88,6 +88,9 @@ interface PagingCasheDao {
 
     @Query("SELECT ALL * FROM FavouriteCommands WHERE isChecked")
     fun getNewTableFavorite(): LiveData<List<FavouriteCommands>>
+
+    @Query("SELECT ALL * FROM FavouriteCommands WHERE isChecked")
+    fun getTableFavorite(): List<FavouriteCommands>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCommands(data: List<Commands>)

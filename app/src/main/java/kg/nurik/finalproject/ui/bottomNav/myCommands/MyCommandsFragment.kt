@@ -36,7 +36,7 @@ class MyCommandsFragment : Fragment(R.layout.fragment_my_commands) {
     private fun setupViewModel() {
         binding.progressBarMyCommands.visibility = ProgressBar.VISIBLE
         vm.getAllFavouriteCommands().observe(viewLifecycleOwner, Observer {
-            adapter.update(it)
+            adapter.submitList(it)
             binding.progressBarMyCommands.visibility = ProgressBar.INVISIBLE
         })
     }

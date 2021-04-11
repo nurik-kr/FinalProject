@@ -40,7 +40,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             }
         })
 
-        tvNext.setOnClickListener {
+        btNext.setOnClickListener {
             if (isLastPage(onBoardViewPager.currentItem)) {
                 PreferenceHelper.setIsFirstLaunch()
                 findNavController().navigate(R.id.action_onBoardMainFragment_to_mainActivity)
@@ -53,7 +53,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             findNavController().navigate(R.id.action_onBoardMainFragment_to_mainActivity)
             requireActivity().finish()
         }
-        tvBack.setOnClickListener {
+        btBack.setOnClickListener {
             onBoardViewPager.currentItem -= 1
         }
     }
@@ -73,7 +73,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.second_title),
-                    R.drawable.league_champions
+                    R.drawable.rodrygo_goes
                 )
             )
         )
@@ -81,7 +81,7 @@ class OnBoardMainFragment : Fragment(R.layout.activity_on_board) {
             OnBoardFragment.getInstance(
                 OnBoardModel(
                     getString(R.string.third_title),
-                        R.drawable.learn_football
+                        R.drawable.ronaldo
                 )
             )
         )

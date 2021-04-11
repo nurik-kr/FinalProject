@@ -18,12 +18,12 @@ import kg.nurik.finalproject.data.model.topScores.TopScores
     version = 8
 )
 @TypeConverters(value = [TypeConvertersList::class])
-abstract class PagingCasheAppDatabase : RoomDatabase() {
-    abstract fun getPagingCasheDao(): PagingCasheDao
+abstract class CasheAppDatabase : RoomDatabase() {
+    abstract fun getCasheDao(): CasheDao
 
     companion object {
-        fun getInstanceDB(context: Context): PagingCasheAppDatabase {
-            return Room.databaseBuilder(context, PagingCasheAppDatabase::class.java, "myDb")
+        fun getInstanceDB(context: Context): CasheAppDatabase {
+            return Room.databaseBuilder(context, CasheAppDatabase::class.java, "myDb")
                 .fallbackToDestructiveMigration()
                 .build()
         }

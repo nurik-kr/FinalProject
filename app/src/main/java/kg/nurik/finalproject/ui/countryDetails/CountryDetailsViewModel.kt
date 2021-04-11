@@ -25,7 +25,7 @@ class CountryDetailsViewModel(private val service: Interactor) : ViewModel() {
                     service.loadCountry(apiKey, continent)
                 parseJsonObject(result)
             }.onFailure {
-                Log.d("ssasdas", it.localizedMessage)
+                Log.d("ssasdas", it.localizedMessage?: "no error message")
             }
         }
     }
