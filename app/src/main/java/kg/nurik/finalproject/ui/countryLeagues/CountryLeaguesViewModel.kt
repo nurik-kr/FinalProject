@@ -14,7 +14,6 @@ import kg.nurik.finalproject.data.model.leagues.Leagues
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class CountryLeaguesViewModel(private val service: Interactor) : ViewModel() {
 
     val dataLeagues = MutableLiveData<BaseList<Leagues>>()
@@ -26,7 +25,7 @@ class CountryLeaguesViewModel(private val service: Interactor) : ViewModel() {
                     service.loadLeagues(apiKey, leagues)
                 parseJsonObject(result)
             }.onFailure {
-                Log.d("ssasdas", it.localizedMessage)
+                Log.d("ssasdas", it.localizedMessage?: "no error message")
             }
         }
     }

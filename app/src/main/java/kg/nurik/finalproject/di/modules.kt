@@ -2,7 +2,7 @@ package kg.nurik.finalproject.di
 
 import kg.nurik.finalproject.data.interactor.Interactor
 import kg.nurik.finalproject.data.interactor.InteractorImpl
-import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
+import kg.nurik.finalproject.data.local.CasheAppDatabase
 import kg.nurik.finalproject.data.remote.RetrofitBuilder
 import kg.nurik.finalproject.data.remote.Service
 import kg.nurik.finalproject.data.repository.Repository
@@ -32,7 +32,7 @@ val viewModelModule: Module = module {
 }
 
 val dbModule: Module = module {
-    single<PagingCasheAppDatabase> { PagingCasheAppDatabase.getInstanceDB(androidApplication()) }
+    single<CasheAppDatabase> { CasheAppDatabase.getInstanceDB(androidApplication()) }
 }
 
 val repositoryModule: Module = module {

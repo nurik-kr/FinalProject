@@ -57,8 +57,8 @@ class ViewHolder(
         if (!point.logo.isNullOrEmpty()) {
             Picasso.get()
                 .load(point.logo)
-                .placeholder(R.drawable.placeholder_command)
-                .error(R.drawable.placeholder_command)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
                 .into(itemView.image_logo)
         }
         itemView.setOnClickListener {

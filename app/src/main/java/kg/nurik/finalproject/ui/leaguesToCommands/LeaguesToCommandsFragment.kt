@@ -36,8 +36,14 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     private fun setupViewModel() {
         binding.progressBarLeaguesToCommands.visibility = ProgressBar.VISIBLE
         vm.getAllCommands().observe(viewLifecycleOwner, Observer {
+            vm.showFavourite(it)
+        })
+        vm.data.observe(viewLifecycleOwner, Observer {
             adapter.update(it)
-            binding.progressBarLeaguesToCommands.visibility = ProgressBar.INVISIBLE
+        })
+        vm.progress.observe(viewLifecycleOwner, Observer {
+            binding.progressBarLeaguesToCommands.isVisible = it
+            binding.recyclerviewCommandToLeagues.isVisible = !it
         })
     }
 
@@ -55,7 +61,9 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     private fun navigateCommandsToPlayers(data: Data?) {
         val direction =
             data?.let {
-                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(it)
+                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(
+                    it
+                )
             }
         direction?.let { findNavController().navigate(it) }
     }

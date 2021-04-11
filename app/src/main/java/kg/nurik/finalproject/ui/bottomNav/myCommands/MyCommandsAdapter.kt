@@ -6,43 +6,33 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
 import android.view.animation.ScaleAnimation
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.model.command.FavouriteCommands
+import kg.nurik.finalproject.utils.DiffUtils
 import kotlinx.android.synthetic.main.item_news.view.*
 
 class MyCommandsAdapter(
     private val viewModel: MyCommandsViewModel,
     private val listener: (item: Data?) -> Unit
-) :
-    RecyclerView.Adapter<ViewHolder>() {
+) : ListAdapter<FavouriteCommands, FavouriteViewHolder>(DiffUtils.diffUtilItems) {
 
-    private val list = arrayListOf<FavouriteCommands>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
-        return ViewHolder(view, viewModel, listener)
+        return FavouriteViewHolder(view, viewModel, listener)
     }
 
-    fun update(list: List<FavouriteCommands>?) {
-        if (list != null) {
-            this.list.clear()
-            this.list.addAll(list)
-            notifyDataSetChanged()
-        }
+    override fun onBindViewHolder(holder: FavouriteViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(list[position])
-    }
-
-    override fun getItemCount() = list.size
 }
 
-class ViewHolder(
+class FavouriteViewHolder(
     view: View,
     private val viewModel: MyCommandsViewModel,
     private val listener: (item: Data?) -> Unit

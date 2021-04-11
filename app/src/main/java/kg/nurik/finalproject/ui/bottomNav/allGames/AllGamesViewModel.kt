@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kg.nurik.finalproject.data.local.PagingCasheAppDatabase
+import kg.nurik.finalproject.data.local.CasheAppDatabase
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class AllGamesViewModel(
     private val repository: Repository,
-    private val db: PagingCasheAppDatabase
+    private val db: CasheAppDatabase
 ) : ViewModel() {
 
     val data = MutableLiveData<List<Data>>()
@@ -23,7 +23,7 @@ class AllGamesViewModel(
     }
 
     private fun loadCategories() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Default) {
             runCatching {
                 repository.loadData()
             }.onFailure {
@@ -33,7 +33,7 @@ class AllGamesViewModel(
     }
 
     fun getAllGames(): LiveData<List<Data>> {
-        return db.getPagingCasheDao().getAllGames()
+        return db.getCasheDao().getAllGames()
     }
 
     fun getFavouriteFiveContinent(data: List<Data>) {

@@ -9,7 +9,7 @@
         android:id="@+id/my_games"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_star_24"
-        android:title="@string/my_games"/>
+        android:title="@string/bookmaker"/>
     <item
         android:id="@+id/my_commands"
         android:enabled="true"
@@ -19,5 +19,5 @@
         android:id="@+id/tournaments"
         android:enabled="true"
         android:icon="@drawable/ic_tournaments"
-        android:title="@string/tournaments"/>
+        android:title="@string/season"/>
 </menu>
