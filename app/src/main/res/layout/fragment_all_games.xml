@@ -23,7 +23,8 @@
         android:id="@+id/parentToolbarAllCountry"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,14 +39,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/parentToolbarAllCountry" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbarAllGames"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/menu_search"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_baseline_search_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/menu_search" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
