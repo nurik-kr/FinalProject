@@ -9,6 +9,6 @@
         android:id="@+id/navigation_my_games"
         android:name="kg.nurik.finalproject.ui.bottomNav.bookmaker.BookmakerFragment"
         android:label="my games"
-        tools:layout="@layout/fragment_my_games" />
+        tools:layout="@layout/fragment_bookmaker" />
 
 </navigation>

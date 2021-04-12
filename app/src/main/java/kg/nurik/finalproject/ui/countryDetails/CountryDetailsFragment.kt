@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.databinding.FragmentCountryDetailsBinding
+import kg.nurik.finalproject.utils.ConnectionUtils
 import kg.nurik.finalproject.utils.viewBinding
+import kotlinx.android.synthetic.main.fragment_all_games.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountryDetailsFragment : Fragment(R.layout.fragment_country_details) {

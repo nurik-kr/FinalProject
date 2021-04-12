@@ -3,6 +3,7 @@ package kg.nurik.finalproject.data.local
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import kg.nurik.finalproject.data.model.allGames.Data
+import kg.nurik.finalproject.data.model.bookmaker.Bookmaker
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.model.players.Players
@@ -53,6 +54,13 @@ interface CasheDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertBookmaker(data: List<Bookmaker>)
+
+    @Query("SELECT * FROM bookmaker")
+    fun getAllBookmaker(): LiveData<List<Bookmaker>>
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSeason(data: List<DataSeason>)
 
     @Query("SELECT * FROM dataseason")
@@ -76,6 +84,12 @@ interface CasheDao {
 
     @Update
     suspend fun updateFavourite(item: FavouriteCommands)
+
+    @Query("SELECT * FROM data WHERE name =:request")
+    suspend fun searchData(request: String): Data
+
+    @Query("SELECT * FROM data")
+    fun getAllGamesData():List<Data>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavouriteCommands(data: FavouriteCommands)

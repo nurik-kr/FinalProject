@@ -3,6 +3,7 @@ package kg.nurik.finalproject.data.repository
 import android.util.Log
 import kg.nurik.finalproject.data.interactor.Interactor
 import kg.nurik.finalproject.data.local.CasheAppDatabase
+import org.koin.android.ext.koin.ERROR_MSG
 
 interface Repository {
     suspend fun loadData()
@@ -10,7 +11,9 @@ interface Repository {
     suspend fun loadPlayers(apiKey: String, country_id: Int)
     suspend fun loadCommands(apiKey: String, country_id: Int)
     suspend fun loadTopScores(apiKey: String, country_id: Int)
+    suspend fun loadBookmaker(apiKey: String)
 }
+
 
 class RepositoryImpl(
     private val network: Interactor,
@@ -27,7 +30,7 @@ class RepositoryImpl(
         try {
             result.body()?.data?.let { db.getCasheDao().deleteAndInsertSeason(it) }
         } catch (e: Exception) {
-            Log.d("season", e.localizedMessage)
+            Log.d("season", e.localizedMessage?: ERROR_MSG)
         }
     }
 
@@ -37,7 +40,7 @@ class RepositoryImpl(
         try {
             result.body()?.data?.let { db.getCasheDao().deleteAndInsertPlayers(it) }
         } catch (e: Exception) {
-            Log.d("players", e.localizedMessage)
+            Log.d("players", e.localizedMessage?: ERROR_MSG)
         }
     }
 
@@ -48,7 +51,7 @@ class RepositoryImpl(
         try {
             result.body()?.data?.let { db.getCasheDao().deleteAndInsertCommands(it) }
         } catch (e: Exception) {
-            Log.d("commands", e.localizedMessage)
+            Log.d("commands", e.localizedMessage?: ERROR_MSG)
         }
     }
 
@@ -57,7 +60,16 @@ class RepositoryImpl(
         try {
             result.body()?.data?.let { db.getCasheDao().deleteAndInsertTopScores(it) }
         } catch (e: Exception) {
-            Log.d("commands", e.localizedMessage)
+            Log.d("commands", e.localizedMessage?: ERROR_MSG)
+        }
+    }
+
+    override suspend fun loadBookmaker(apiKey: String) {
+        val result = network.loadBookmaker(apiKey)
+        try {
+            result.body()?.data?.let { db.getCasheDao().insertBookmaker(it) }
+        } catch (e: Exception) {
+            Log.d("commands", e.localizedMessage?: ERROR_MSG)
         }
     }
 }

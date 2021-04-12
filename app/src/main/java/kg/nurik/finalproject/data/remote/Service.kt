@@ -2,6 +2,7 @@ package kg.nurik.finalproject.data.remote
 
 import kg.nurik.finalproject.data.model.allGames.BaseList
 import kg.nurik.finalproject.data.model.allGames.Data
+import kg.nurik.finalproject.data.model.bookmaker.Bookmaker
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.countryDet.CountryEntity
 import kg.nurik.finalproject.data.model.players.Players
@@ -24,6 +25,12 @@ interface Service {
         @Query("apikey") apikey: String,
         @Query("continent") continent: String
     ): CountryEntity
+
+    @GET("api/v1/soccer/countries")
+    suspend fun searchCountry(
+        @Query("apikey") apikey: String,
+        @Query("continent") continent: String
+    ): Response<BaseList<Data>>
 
     @GET("api/v1/soccer/leagues")
     suspend fun loadLeagues(
@@ -54,6 +61,11 @@ interface Service {
         @Query("apikey") apikey: String,
         @Query("country_id") countryId: Int?
     ): Response<BaseList<Players>>
+
+    @GET("api/v1/soccer/bookmakers")
+    suspend fun loadBookmaker(
+        @Query("apikey") apikey: String
+    ): Response<BaseList<Bookmaker>>
 
 }
 

@@ -1,8 +1,12 @@
 package kg.nurik.finalproject.ui.leaguesToCommands
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -38,12 +42,15 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
         vm.getAllCommands().observe(viewLifecycleOwner, Observer {
             vm.showFavourite(it)
         })
-        vm.data.observe(viewLifecycleOwner, Observer {
-            adapter.update(it)
-        })
         vm.progress.observe(viewLifecycleOwner, Observer {
             binding.progressBarLeaguesToCommands.isVisible = it
             binding.recyclerviewCommandToLeagues.isVisible = !it
+        })
+        vm.data.observe(viewLifecycleOwner, Observer {
+            adapter.update(it)
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.emptyView.isVisible = it.isEmpty()
+            }, 500)
         })
     }
 

@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import kg.nurik.finalproject.data.model.allGames.Data
+import kg.nurik.finalproject.data.model.bookmaker.Bookmaker
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.command.FavouriteCommands
 import kg.nurik.finalproject.data.model.players.Players
@@ -14,8 +15,8 @@ import kg.nurik.finalproject.data.model.topScores.TopScores
 
 @Database(
     entities = [Data::class, DataSeason::class, Players::class, Commands::class,
-        FavouriteCommands::class, TopScores::class],
-    version = 8
+        FavouriteCommands::class, TopScores::class, Bookmaker::class],
+    version = 10
 )
 @TypeConverters(value = [TypeConvertersList::class])
 abstract class CasheAppDatabase : RoomDatabase() {

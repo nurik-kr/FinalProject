@@ -29,7 +29,6 @@ class MyCommandsAdapter(
     override fun onBindViewHolder(holder: FavouriteViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
 }
 
 class FavouriteViewHolder(

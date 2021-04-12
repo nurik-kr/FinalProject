@@ -9,6 +9,7 @@ import kg.nurik.finalproject.data.repository.Repository
 import kg.nurik.finalproject.data.repository.RepositoryImpl
 import kg.nurik.finalproject.ui.leaguesToCommands.LeaguesToCommandViewModel
 import kg.nurik.finalproject.ui.bottomNav.allGames.AllGamesViewModel
+import kg.nurik.finalproject.ui.bottomNav.bookmaker.BookmakerViewModel
 import kg.nurik.finalproject.ui.bottomNav.myCommands.MyCommandsViewModel
 import kg.nurik.finalproject.ui.commandToPlayers.PlayersViewModel
 import kg.nurik.finalproject.ui.countryDetails.CountryDetailsViewModel
@@ -22,15 +23,16 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val viewModelModule: Module = module {
-    viewModel { AllGamesViewModel(get(),get()) }
+    viewModel { AllGamesViewModel(get(), get()) }
     viewModel { CountryDetailsViewModel(get()) }
     viewModel { CountryLeaguesViewModel(get()) }
-    viewModel { GamesSeasonViewModel(get(),get()) }
-    viewModel { LeaguesToCommandViewModel(get(),get()) }
-    viewModel { PlayersViewModel(get(),get()) }
-    viewModel { MyCommandsViewModel(get(),get()) }
-    viewModel { TopScoresViewModel(get(),get()) }
-    viewModel { SearchViewModel(get(),get()) }
+    viewModel { GamesSeasonViewModel(get(), get()) }
+    viewModel { LeaguesToCommandViewModel(get(), get()) }
+    viewModel { PlayersViewModel(get(), get()) }
+    viewModel { MyCommandsViewModel(get(), get()) }
+    viewModel { TopScoresViewModel(get(), get()) }
+    viewModel { SearchViewModel(get(), get()) }
+    viewModel { BookmakerViewModel(get(),get()) }
 }
 
 val dbModule: Module = module {
