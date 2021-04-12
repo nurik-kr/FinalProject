@@ -7,30 +7,54 @@
     android:background="@color/bg_parent"
     tools:context=".ui.search.SearchFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentToolbarSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_toolbar_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_black_toolbar"
+            android:gravity="center"
+            android:text="@string/global_search"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp24"
+            app:layout_constraintBottom_toBottomOf="@id/parentToolbarSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/parentToolbarSearch" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintTextColor="@color/white"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:hint="@string/write_continent"
-        android:padding="10dp"
+        android:padding="5dp"
         android:textColorHint="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent">
+        app:hintTextColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/parentToolbarSearch">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionSearch"
+            android:imeOptions="actionSend"
             android:inputType="textNoSuggestions|textCapSentences"
             android:maxLines="1"
             android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
@@ -39,5 +63,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/outlinedTextField"
         tools:listitem="@layout/item_all_games" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_back_button"
+        app:layout_constraintBottom_toBottomOf="@id/parentToolbarSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/parentToolbarSearch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package kg.nurik.finalproject.ui.topScorers
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import kg.nurik.finalproject.R
@@ -30,7 +31,9 @@ class TopScorersFragment : Fragment(R.layout.fragment_top_scorers) {
         binding.progressBarTopScores.visibility = ProgressBar.VISIBLE
         vm.getTopScores().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
-            binding.progressBarTopScores.visibility = ProgressBar.INVISIBLE
+        })
+        vm.progress.observe(viewLifecycleOwner, Observer {
+            binding.progressBarTopScores.isVisible = it
         })
     }
 

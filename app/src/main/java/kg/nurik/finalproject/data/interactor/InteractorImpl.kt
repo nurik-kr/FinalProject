@@ -3,6 +3,7 @@ package kg.nurik.finalproject.data.interactor
 import kg.nurik.finalproject.BuildConfig.apiKey
 import kg.nurik.finalproject.data.model.allGames.BaseList
 import kg.nurik.finalproject.data.model.allGames.Data
+import kg.nurik.finalproject.data.model.bookmaker.Bookmaker
 import kg.nurik.finalproject.data.model.command.Commands
 import kg.nurik.finalproject.data.model.countryDet.CountryEntity
 import kg.nurik.finalproject.data.model.players.Players
@@ -15,11 +16,13 @@ import retrofit2.Response
 interface Interactor {
     suspend fun loadData(): Response<BaseList<Data>>
     suspend fun loadCountry(apiKey: String, continent: String): CountryEntity
+    suspend fun searchCountry(apiKey: String, continent: String): Response<BaseList<Data>>
     suspend fun loadLeagues(apiKey: String, country_id: Int): CountryEntity
     suspend fun loadCommands(apiKey: String, country_id: Int): Response<BaseList<Commands>>
     suspend fun loadSeasons(apiKey: String, season_id: Int): Response<BaseSeason<DataSeason>>
     suspend fun loadTopScores(apiKey: String, season_id: Int): Response<BaseSeason<TopScores>>
     suspend fun loadPlayers(apiKey: String, country_id: Int?): Response<BaseList<Players>>
+    suspend fun loadBookmaker(apiKey: String): Response<BaseList<Bookmaker>>
 }
 
 class InteractorImpl(private val service: Service) : Interactor {
@@ -30,6 +33,13 @@ class InteractorImpl(private val service: Service) : Interactor {
 
     override suspend fun loadCountry(apiKey: String, continent: String): CountryEntity {
         return service.loadCountry(apikey = apiKey, continent = continent)
+    }
+
+    override suspend fun searchCountry(
+        apiKey: String,
+        continent: String
+    ): Response<BaseList<Data>> {
+        return service.searchCountry(apiKey, continent)
     }
 
     override suspend fun loadLeagues(apiKey: String, country_id: Int): CountryEntity {
@@ -65,5 +75,9 @@ class InteractorImpl(private val service: Service) : Interactor {
         country_id: Int?
     ): Response<BaseList<Players>> {
         return service.loadPlayers(apikey = apiKey, countryId = country_id)
+    }
+
+    override suspend fun loadBookmaker(apiKey: String): Response<BaseList<Bookmaker>> {
+        return service.loadBookmaker(apiKey)
     }
 }

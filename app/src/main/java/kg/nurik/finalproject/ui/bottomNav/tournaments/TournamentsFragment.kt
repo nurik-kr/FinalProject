@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.data.model.ViewPagerModel
@@ -16,7 +17,9 @@ import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonFragment
 import kg.nurik.finalproject.ui.gamesToSeason.GamesSeasonViewModel
 import kg.nurik.finalproject.ui.topScorers.TopScorersFragment
 import kg.nurik.finalproject.ui.topScorers.TopScoresViewModel
+import kg.nurik.finalproject.utils.ConnectionUtils
 import kg.nurik.finalproject.utils.viewBinding
+import kotlinx.android.synthetic.main.fragment_all_games.*
 import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

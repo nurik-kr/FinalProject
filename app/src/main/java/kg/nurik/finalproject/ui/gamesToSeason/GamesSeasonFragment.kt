@@ -29,7 +29,9 @@ class GamesSeasonFragment(private val listener: (data: DataSeason) -> Unit) :
         binding.progressBarTournaments.visibility = ProgressBar.VISIBLE
         vm.getAllSeason().observe(viewLifecycleOwner, Observer {
             adapter.update(it)
-            binding.progressBarTournaments.visibility = ProgressBar.INVISIBLE
+        })
+        vm.progress.observe(viewLifecycleOwner, Observer {
+            binding.progressBarTournaments.isVisible = it
         })
     }
 }

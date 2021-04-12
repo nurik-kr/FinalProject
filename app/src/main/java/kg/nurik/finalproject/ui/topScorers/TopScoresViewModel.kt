@@ -21,8 +21,8 @@ class TopScoresViewModel(
 
     fun loadTopScores(countryId: Int = 496) {
         viewModelScope.launch(Dispatchers.Default) {
+            progress.postValue(true)
             runCatching {
-                progress.postValue(true)
                 repository.loadTopScores(apiKey, country_id = countryId)
                 progress.postValue(false)
             }.onFailure {

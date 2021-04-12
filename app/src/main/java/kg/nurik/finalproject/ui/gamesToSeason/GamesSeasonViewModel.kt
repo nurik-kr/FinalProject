@@ -21,8 +21,8 @@ class GamesSeasonViewModel(
 
     fun loadSeason(seasonId: Int = 496) {
         viewModelScope.launch(Dispatchers.Default) {
+            progress.postValue(true)
             runCatching {
-                progress.postValue(true)
                 repository.loadSeasons(apiKey, season_id = seasonId)
                 progress.postValue(false)
             }.onFailure {

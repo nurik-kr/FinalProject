@@ -1,12 +1,15 @@
 package kg.nurik.finalproject.ui.commandToPlayers
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -34,9 +37,15 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
 
     private fun setupViewModel() {
         binding.progressBarPlayers.visibility = ProgressBar.VISIBLE
+        vm.progress.observe(viewLifecycleOwner, Observer {
+            binding.progressBarPlayers.isVisible = it
+            binding.RecyclerviewPlayers.isVisible = !it
+        })
         vm.getAllPlayers().observe(viewLifecycleOwner, Observer {
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.emptyView.isVisible = it.isEmpty()
+            }, 500)
             adapter.update(it)
-            binding.progressBarPlayers.visibility = ProgressBar.INVISIBLE
         })
     }
 
