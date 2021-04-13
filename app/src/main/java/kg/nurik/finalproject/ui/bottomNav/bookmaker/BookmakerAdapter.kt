@@ -42,8 +42,8 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         if (!point?.img.isNullOrEmpty()) {
             Picasso.get()
                 .load(point?.img)
-                .placeholder(R.drawable.placeholder_bookmaker)
-                .error(R.drawable.placeholder_bookmaker)
+                .placeholder(R.drawable.ic_bookmaker)
+                .error(R.drawable.ic_bookmaker)
                 .into(itemView.im_bookmaker)
         }
     }

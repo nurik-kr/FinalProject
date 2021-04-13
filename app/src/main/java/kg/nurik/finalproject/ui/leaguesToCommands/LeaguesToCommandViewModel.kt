@@ -28,7 +28,7 @@ class LeaguesToCommandViewModel(
                 repository.loadCommands(apiKey, country_id = countryId)
                 progress.postValue(false)
             }.onFailure {
-                progress.postValue(true)
+                progress.postValue(false)
                 Log.d("commands", it.localizedMessage ?: "no error message")
             }
         }

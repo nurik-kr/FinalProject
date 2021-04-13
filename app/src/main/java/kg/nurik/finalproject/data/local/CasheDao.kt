@@ -86,10 +86,10 @@ interface CasheDao {
     suspend fun updateFavourite(item: FavouriteCommands)
 
     @Query("SELECT * FROM data WHERE name =:request")
-    suspend fun searchData(request: String): Data
+    suspend fun searchData(request: String): List<Data>
 
     @Query("SELECT * FROM data")
-    fun getAllGamesData():List<Data>
+    fun getAllGamesData(): List<Data>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavouriteCommands(data: FavouriteCommands)

@@ -5,8 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ProgressBar
-import androidx.core.view.isEmpty
-import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -45,13 +43,18 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
         vm.progress.observe(viewLifecycleOwner, Observer {
             binding.progressBarLeaguesToCommands.isVisible = it
             binding.recyclerviewCommandToLeagues.isVisible = !it
+            changeProgress(it)
         })
         vm.data.observe(viewLifecycleOwner, Observer {
             adapter.update(it)
-            Handler(Looper.getMainLooper()).postDelayed({
-                binding.emptyView.isVisible = it.isEmpty()
-            }, 500)
         })
+    }
+
+    private fun changeProgress(progress: Boolean) {
+        if (!progress)
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.emptyView.isVisible = vm.data.value?.isEmpty() == true
+            }, 500)
     }
 
     private fun setupViews() {
@@ -68,9 +71,7 @@ class LeaguesToCommandsFragment : Fragment(R.layout.fragment_leagues_to_commands
     private fun navigateCommandsToPlayers(data: Data?) {
         val direction =
             data?.let {
-                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(
-                    it
-                )
+                LeaguesToCommandsFragmentDirections.actionLeaguesToCommandsFragmentToPlayersFragment(it)
             }
         direction?.let { findNavController().navigate(it) }
     }

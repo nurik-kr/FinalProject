@@ -49,7 +49,6 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
                 }
             snack.setTextColor(Color.parseColor("#FF000000"))
             snack.setActionTextColor(Color.parseColor("#FF000000"))
-            snack.view.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
             snack.show()
         }
     }
@@ -72,7 +71,6 @@ class AllGamesFragment : Fragment(R.layout.fragment_all_games) {
             adapterFavourite.update(it)
         })
     }
-
 
     private fun navigateToDetails(data: Data) {
         val direction =
