@@ -31,8 +31,8 @@ val viewModelModule: Module = module {
     viewModel { PlayersViewModel(get(), get()) }
     viewModel { MyCommandsViewModel(get(), get()) }
     viewModel { TopScoresViewModel(get(), get()) }
-    viewModel { SearchViewModel(get(), get()) }
-    viewModel { BookmakerViewModel(get(),get()) }
+    viewModel { SearchViewModel(get()) }
+    viewModel { BookmakerViewModel(get(), get()) }
 }
 
 val dbModule: Module = module {

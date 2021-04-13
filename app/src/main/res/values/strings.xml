@@ -66,6 +66,7 @@
     <string name="write_continent">Введите континент</string>
     <string name="global_search">Глобальный Поиск</string>
     <string name="empty_text">Упс! В этой лиге нет команд</string>
+    <string name="empty_search">По вашему запросу ничего не найдено,попробуйте еще раз</string>
     <string name="empty_text_player">Упс! В этой команде мы\nне нашли игроков</string>
     <string name="empty_text_commands">Упс!\nУ вас нет избранных команд</string>
     <string name="erroe_internet">Проверьте подключение к интернету</string>

@@ -10,12 +10,13 @@ import kg.nurik.finalproject.data.model.allGames.Data
 import kg.nurik.finalproject.utils.DiffUtils
 import kotlinx.android.synthetic.main.item_all_games.view.*
 
-class SearchAdapter() : ListAdapter<Data, SearchViewHolder>(DiffUtils.diffUtilSearch) {
+class SearchAdapter(private val listener: (item: Data) -> Unit) :
+    ListAdapter<Data, SearchViewHolder>(DiffUtils.diffUtilSearch) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_all_games, parent, false)
-        return SearchViewHolder(view)
+        return SearchViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
@@ -23,8 +24,13 @@ class SearchAdapter() : ListAdapter<Data, SearchViewHolder>(DiffUtils.diffUtilSe
     }
 }
 
-class SearchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class SearchViewHolder(view: View, private val listener: (item: Data) -> Unit) :
+    RecyclerView.ViewHolder(view) {
     fun bind(point: Data) {
         itemView.tv_name.text = point.name
+
+        itemView.setOnClickListener {
+            listener.invoke(point)
+        }
     }
 }
