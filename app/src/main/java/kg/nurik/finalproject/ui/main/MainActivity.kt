@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import kg.nurik.finalproject.R
 import kg.nurik.finalproject.databinding.ActivityMainBinding
 import kg.nurik.finalproject.utils.setupWithNavController
@@ -34,10 +35,7 @@ class MainActivity : AppCompatActivity() {
             intent = intent
         ).observe(this, Observer {
             navController = it
+            (navController as NavHostController).enableOnBackPressed(true)
         })
-    }
-
-    override fun onBackPressed() {
-        navController.popBackStack()
     }
 }
