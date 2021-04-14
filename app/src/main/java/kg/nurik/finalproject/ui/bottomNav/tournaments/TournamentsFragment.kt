@@ -32,6 +32,7 @@ class TournamentsFragment : Fragment(R.layout.fragment_tournaments) {
         setupViewPager()
         setupViewModel()
         vmSeason.loadSeason()
+        vmTopScores.loadTopScores()
     }
 
     private fun setupViewModel() {
